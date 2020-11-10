@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="数据存储单位 位(bit)：   1bit 可以保存一个 0 或者 1 （最小的存储单位） 字节(Byte)：1B &#x3D; 8b 千字节(KB)：1KB &#x3D; 1024B 兆字节(MB)：1MB &#x3D; 1024KB 吉字节(GB):  1GB &#x3D; 1024MB 太字节(TB):  1TB &#x3D; 1024GB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第五天总结">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/11/13/%E7%AC%AC%E4%BA%94%E5%A4%A9%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="数据存储单位 位(bit)：   1bit 可以保存一个 0 或者 1 （最小的存储单位） 字节(Byte)：1B &#x3D; 8b 千字节(KB)：1KB &#x3D; 1024B 兆字节(MB)：1MB &#x3D; 1024KB 吉字节(GB):  1GB &#x3D; 1024MB 太字节(TB):  1TB &#x3D; 1024GB">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-10T15:32:04.378Z">
+<meta property="article:author" content="Dmj1234">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/11/13/%E7%AC%AC%E4%BA%94%E5%A4%A9%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>第五天总结 | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/11/13/%E7%AC%AC%E4%BA%94%E5%A4%A9%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第五天总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-13T00:00:00+08:00">2020-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-10 23:32:04" itemprop="dateModified" datetime="2020-11-10T23:32:04+08:00">2020-11-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="数据存储单位"><a href="#数据存储单位" class="headerlink" title="数据存储单位"></a>数据存储单位</h4><ul>
+<li>位(bit)：   1bit 可以保存一个 0 或者 1 （最小的存储单位）</li>
+<li>字节(Byte)：1B = 8b</li>
+<li>千字节(KB)：1KB = 1024B</li>
+<li>兆字节(MB)：1MB = 1024KB</li>
+<li>吉字节(GB):  1GB = 1024MB</li>
+<li>太字节(TB):  1TB = 1024GB<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="JavaScript的作用"><a href="#JavaScript的作用" class="headerlink" title="JavaScript的作用"></a>JavaScript的作用</h4><ul>
+<li> 表单动态校验（密码强度检测）  （ JS 产生最初的目的 ）</li>
+<li> 网页特效</li>
+<li> 服务端开发(Node.js)</li>
+<li> 桌面程序(Electron)</li>
+<li> App(Cordova) </li>
+<li> 控制硬件-物联网(Ruff)</li>
+<li> 游戏开发(cocos2d-js)</li>
+</ul>
+<h4 id="DOM——文档对象模型"><a href="#DOM——文档对象模型" class="headerlink" title="DOM——文档对象模型"></a>DOM——文档对象模型</h4><p><strong>文档对象模型</strong>（DocumentObject Model，简称DOM），是W3C组织推荐的处理可扩展标记语言的标准编程接口。通过 DOM 提供的接口可以对页面上的各种元素进行操作（大小、位置、颜色等）</p>
+<h4 id="BOM——浏览器对象模型"><a href="#BOM——浏览器对象模型" class="headerlink" title="BOM——浏览器对象模型"></a>BOM——浏览器对象模型</h4><p><strong>浏览器对象模型</strong>(Browser Object Model，简称BOM) 是指浏览器对象模型，它提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。通过BOM可以操作浏览器窗口，比如弹出框、控制浏览器跳转、获取分辨率等。</p>
+<h4 id="javascript的typeof返回哪些数据类型"><a href="#javascript的typeof返回哪些数据类型" class="headerlink" title="javascript的typeof返回哪些数据类型"></a>javascript的typeof返回哪些数据类型</h4><ul>
+<li>string, boolean, number, undefined, function, object</li>
+</ul>
+<h4 id="和-的不同"><a href="#和-的不同" class="headerlink" title="==和===的不同"></a>==和===的不同</h4><ul>
+<li>==会自动转换类型,再判断是否相等</li>
+<li>===不会自动类型转换，直接去比较</li>
+</ul>
+<h4 id="null和undefined的区别？"><a href="#null和undefined的区别？" class="headerlink" title="null和undefined的区别？"></a>null和undefined的区别？</h4><ul>
+<li><p>null是一个表示”无”的对象，转为数值时为 0；undefined是一个表示”无”的原始值，转为数值时为NaN。当声明的变量还未被初始化时，变量的默认值为undefined。null用来表示尚未存在的对象</p>
+</li>
+<li><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：<br>1、变量被声明了，但没有赋值时，就等于undefined。<br>2、调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>3、对象没有赋值的属性，该属性的值为undefined。<br>4、函数没有返回值时，默认返回undefined。</p>
+</li>
+<li><p>null表示”没有对象”，即该处不应该有值。典型用法是：<br>1、作为函数的参数，表示该函数的参数不是对象。<br>2、作为对象原型链的终点。</p>
+</li>
+</ul>
+<h4 id="什么是数据类型转换？"><a href="#什么是数据类型转换？" class="headerlink" title="什么是数据类型转换？"></a>什么是数据类型转换？</h4><p>​        使用表单、prompt 获取过来的数据默认是字符串类型的，此时就不能直接简单的进行加法运算，而需要转换变量的数据类型。通俗来说，就是把一种数据类型的变量转换成另一种数据类型，通常会实现3种方式的转换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">转换为字符串类型</span><br><span class="line">转换为数字型</span><br><span class="line">转换为布尔型</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将其他类型转换为string：</li>
+</ul>
+<ol>
+<li>调用被转换类型的to String( )方法。null和undefined 没有to Sting的方法。</li>
+<li>Sting( ) 调用string函数</li>
+<li>隐形类型转换 a=a + ‘ ‘; 空串</li>
+</ol>
+<ul>
+<li>将其他类型转为Number</li>
+</ul>
+<p>1.Number( )   调用number函数   非数字内容和 undefined 转为 NaN   布尔true和false对于0和1     空串和null转 0</p>
+<ul>
+<li>将其他类型转为Boolean</li>
+</ul>
+<ol>
+<li>0和NaN转为false</li>
+<li>字符串的空串为false</li>
+<li>null和undefined为false</li>
+</ol>
+<h4 id="运算符的分类"><a href="#运算符的分类" class="headerlink" title="运算符的分类"></a>运算符的分类</h4><ul>
+<li> 算数运算符</li>
+<li> 递增和递减运算符</li>
+<li> 比较运算符</li>
+<li> 逻辑运算符</li>
+<li> 赋值运算符</li>
+</ul>
+<h4 id="break-continue-return-的区别"><a href="#break-continue-return-的区别" class="headerlink" title="break ,continue ,return 的区别"></a>break ,continue ,return 的区别</h4><ul>
+<li>break ：结束当前的循环体（如 for、while）</li>
+<li>continue ：跳出本次循环，继续执行下次循环（如 for、while）</li>
+<li>return ：不仅可以退出循环，还能够返回 return 语句中的值，同时还可以结束当前的函数体内的代码</li>
+</ul>
+<h4 id="arguments的使用"><a href="#arguments的使用" class="headerlink" title="arguments的使用"></a>arguments的使用</h4><ul>
+<li>当不确定有多少个参数传递的时候，可以用 arguments 来获取。JavaScript 中，arguments实际上它是当前函数的一个内置对象。所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。arguments展示形式是一个伪数组，因此可以进行遍历。伪数组具有以下特点：</li>
+<li>具有 length 属性</li>
+<li>按索引方式储存数据</li>
+<li>不具有数组的 push , pop 等方法<br>注意：在函数内部使用该对象，用此对象获取函数调用时传的实参。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/12/%E7%AC%AC%E5%9B%9B%E5%A4%A9%E6%80%BB%E7%BB%93/" rel="prev" title="第四天总结">
+      <i class="fa fa-chevron-left"></i> 第四天总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text">数据存储单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">JavaScript的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM%E2%80%94%E2%80%94%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">DOM——文档对象模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BOM%E2%80%94%E2%80%94%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">BOM——浏览器对象模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript%E7%9A%84typeof%E8%BF%94%E5%9B%9E%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">javascript的typeof返回哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%92%8C-%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="nav-number">6.</span> <span class="nav-text">&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null%E5%92%8Cundefined%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">null和undefined的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">什么是数据类型转换？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">9.</span> <span class="nav-text">运算符的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break-continue-return-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">10.</span> <span class="nav-text">break ,continue ,return 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arguments%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">11.</span> <span class="nav-text">arguments的使用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

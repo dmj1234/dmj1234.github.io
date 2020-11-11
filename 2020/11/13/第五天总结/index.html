@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="数据存储单位 位(bit)：   1bit 可以保存一个 0 或者 1 （最小的存储单位） 字节(Byte)：1B &#x3D; 8b 千字节(KB)：1KB &#x3D; 1024B 兆字节(MB)：1MB &#x3D; 1024KB 吉字节(GB):  1GB &#x3D; 1024MB 太字节(TB):  1TB &#x3D; 1024GB">
+  <meta name="description" content="浏览器是如何渲染页面的？ 解析HTML文件，创建DOM树。自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。 解析CSS。优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式； 将CSS与DOM合并，构建渲染树（Render Tree） 布局和绘制，重绘（repaint）和重排（re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五天总结">
 <meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/11/13/%E7%AC%AC%E4%BA%94%E5%A4%A9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="灰一样的感觉">
-<meta property="og:description" content="数据存储单位 位(bit)：   1bit 可以保存一个 0 或者 1 （最小的存储单位） 字节(Byte)：1B &#x3D; 8b 千字节(KB)：1KB &#x3D; 1024B 兆字节(MB)：1MB &#x3D; 1024KB 吉字节(GB):  1GB &#x3D; 1024MB 太字节(TB):  1TB &#x3D; 1024GB">
+<meta property="og:description" content="浏览器是如何渲染页面的？ 解析HTML文件，创建DOM树。自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。 解析CSS。优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式； 将CSS与DOM合并，构建渲染树（Render Tree） 布局和绘制，重绘（repaint）和重排（re">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-11-11T02:37:35.950Z">
+<meta property="article:modified_time" content="2020-11-11T11:00:54.527Z">
 <meta property="article:author" content="Dmj1234">
 <meta name="twitter:card" content="summary">
 
@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-11 10:37:35" itemprop="dateModified" datetime="2020-11-11T10:37:35+08:00">2020-11-11</time>
+                <time title="修改时间：2020-11-11 19:00:54" itemprop="dateModified" datetime="2020-11-11T19:00:54+08:00">2020-11-11</time>
               </span>
 
           
@@ -195,7 +195,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="数据存储单位"><a href="#数据存储单位" class="headerlink" title="数据存储单位"></a>数据存储单位</h4><ul>
+        <h4 id="浏览器是如何渲染页面的？"><a href="#浏览器是如何渲染页面的？" class="headerlink" title="浏览器是如何渲染页面的？"></a>浏览器是如何渲染页面的？</h4><ul>
+<li>解析HTML文件，创建DOM树。<br>自上而下，遇到任何样式（link、style）与脚本（script）都会阻塞（外部样式不阻塞后续外部脚本的加载）。</li>
+<li>解析CSS。优先级：浏览器默认设置&lt;用户设置&lt;外部样式&lt;内联样式&lt;HTML中的style样式；</li>
+<li>将CSS与DOM合并，构建渲染树（Render Tree）</li>
+<li>布局和绘制，重绘（repaint）和重排（reflow）</li>
+</ul>
+<h4 id="数据存储单位"><a href="#数据存储单位" class="headerlink" title="数据存储单位"></a>数据存储单位</h4><ul>
 <li>位(bit)：   1bit 可以保存一个 0 或者 1 （最小的存储单位）</li>
 <li>字节(Byte)：1B = 8b</li>
 <li>千字节(KB)：1KB = 1024B</li>
@@ -215,6 +221,10 @@
 <li> 游戏开发(cocos2d-js)</li>
 </ul>
 <h4 id="DOM——文档对象模型"><a href="#DOM——文档对象模型" class="headerlink" title="DOM——文档对象模型"></a>DOM——文档对象模型</h4><p><strong>文档对象模型</strong>（DocumentObject Model，简称DOM），是W3C组织推荐的处理可扩展标记语言的标准编程接口。通过 DOM 提供的接口可以对页面上的各种元素进行操作（大小、位置、颜色等）</p>
+<ul>
+<li>对于JavaScript，为了能够使JavaScript操作HTML，JavaScript就有了一套自己的dom编程接口。</li>
+<li>对于HTML，DOM使得HTML形成一颗DOM树，包含文档、元素、节点</li>
+</ul>
 <h4 id="BOM——浏览器对象模型"><a href="#BOM——浏览器对象模型" class="headerlink" title="BOM——浏览器对象模型"></a>BOM——浏览器对象模型</h4><p><strong>浏览器对象模型</strong>(Browser Object Model，简称BOM) 是指浏览器对象模型，它提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。通过BOM可以操作浏览器窗口，比如弹出框、控制浏览器跳转、获取分辨率等。</p>
 <h4 id="javascript的typeof返回哪些数据类型"><a href="#javascript的typeof返回哪些数据类型" class="headerlink" title="javascript的typeof返回哪些数据类型"></a>javascript的typeof返回哪些数据类型</h4><ul>
 <li>string, boolean, number, undefined, function, object</li>
@@ -295,12 +305,52 @@
 
 </li>
 </ul>
+<h4 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h4><ul>
+<li>JavaScript 中的对象分为3种：<strong>自定义对象 、内置对象、 浏览器对象</strong><br>​前面两种对象是JS 基础 内容，属于 ECMAScript；  第三个浏览器对象属于 JS 独有的， JS API 讲解内置对象就是指 JS 语言自带的一些对象，这些对象供开发者使用，并提供了一些常用的或是<strong>最基本而必要的功能</strong>（属性和方法），内置对象最大的优点就是帮助我们快速开发</li>
+<li>JavaScript 提供了多个内置对象：Math、 Date 、Array、String等    </li>
+</ul>
 <h4 id="Math-数学对象-略过"><a href="#Math-数学对象-略过" class="headerlink" title="Math( )数学对象   略过"></a>Math( )数学对象   略过</h4><ul>
 <li>Math.PI    // 一个属性 圆周率</li>
-<li>Math.random   // Math对象随机数方法</li>
-<li>Math.floor(Math.random() * (max - min + 1)) + min;    // 随机整数</li>
+<li>Math.random   // Math对象随机数方法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandom</span>(<span class="params">min, max</span>) </span>&#123;   </span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min; </span><br><span class="line">&#125;  <span class="comment">// 随机整数</span></span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#### Date() 日期对象  略过</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line">        <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();    <span class="comment">// Date() 日期对象是一个构造函数 必须使用new 来调用</span></span><br><span class="line">        <span class="built_in">console</span>.log(date.getFullYear()); </span><br><span class="line">        <span class="built_in">console</span>.log(date.getMonth() + <span class="number">1</span>);   <span class="comment">// 月份 返回的月份小1个月   记得月份+1</span></span><br><span class="line">        <span class="built_in">console</span>.log(date.getDate()); </span><br><span class="line">        <span class="built_in">console</span>.log(date.getDay()); </span><br></pre></td></tr></table></figure>
+
+
+</li>
 </ul>
-<h4 id="Date-日期对象-略过"><a href="#Date-日期对象-略过" class="headerlink" title="Date() 日期对象  略过"></a>Date() 日期对象  略过</h4>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();    <span class="comment">// Date() 日期对象  是一个构造函数 必须使用new 来调用创建我们的日期对象</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getFullYear()); </span><br><span class="line"><span class="built_in">console</span>.log(date.getMonth() + <span class="number">1</span>); </span><br><span class="line"><span class="built_in">console</span>.log(date.getDate()); </span><br><span class="line"><span class="built_in">console</span>.log(date.getDay()); </span><br></pre></td></tr></table></figure>
+<h4 id="创建数组的两种方式"><a href="#创建数组的两种方式" class="headerlink" title="创建数组的两种方式"></a>创建数组的两种方式</h4><ul>
+<li>字面量方式  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [ ];</span><br></pre></td></tr></table></figure></li>
+<li>利用new Array( )  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="检测是否为数组"><a href="#检测是否为数组" class="headerlink" title="检测是否为数组"></a>检测是否为数组</h4><ul>
+<li> instanceof 可以判断一个对象是否是某个构造函数的实例</li>
+<li> Array.isArray()用于判断一个对象是否为数组，isArray() 是 HTML5 中提供的方法</li>
+</ul>
+<h4 id="添加删除数组元素的方法"><a href="#添加删除数组元素的方法" class="headerlink" title="添加删除数组元素的方法"></a>添加删除数组元素的方法</h4><ul>
+<li>push()   在我们数组的末尾 添加一个或者多个数组元素</li>
+<li>unshift()   是可以给数组前面追加新的元素</li>
+<li>pop是可以删除数组的最后一个元素</li>
+<li>shift()   是可以删除数组的第一个元素</li>
+</ul>
+<h4 id="翻转数组"><a href="#翻转数组" class="headerlink" title="翻转数组"></a>翻转数组</h4><ul>
+<li> reverse( )   颠倒数组中元素的顺序，无参数</li>
+<li> sort( )    对数组元素进行排序</li>
+<li>注意：sort方法需要传入参数来设置升序、降序排序<br> 如果传入“function(a,b){ return a-b;}”，则为升序<br> 如果传入“function(a,b){ return b-a;}”，则为降序</li>
+</ul>
+<h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">         <span class="keyword">var</span> newArr = [];</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">             <span class="keyword">if</span> (newArr.indexOf(arr[i]) === -<span class="number">1</span>) &#123;</span><br><span class="line">                 newArr.push(arr[i]);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> newArr;</span><br><span class="line">         <span class="comment">// 返回数组元素索引号方法  indexOf(数组元素)</span></span><br><span class="line">     &#125;   <span class="comment">//遍历旧数组， 然后拿着旧数组元素去查询新数组</span></span><br><span class="line">     <span class="keyword">var</span> demo = unique([<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;z&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;b&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="http-和-https-有何区别？如何灵活使用？"><a href="#http-和-https-有何区别？如何灵活使用？" class="headerlink" title="http 和 https 有何区别？如何灵活使用？"></a>http 和 https 有何区别？如何灵活使用？</h4><ul>
+<li>http是HTTP协议运行在TCP之上。所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。</li>
+<li>https是HTTP运行在SSL/TLS之上，SSL/TLS运行在TCP之上。所有传输的内容都经过加密，加密采用对称加密，但对称加密的密钥用服务器方的证书进行了非对称加密。此外客户端可以验证服务器端的身份，如果配置了客户端验证，服务器方也可以验证客户端的身份</li>
+</ul>
+<h4 id="优雅降级和渐进增强"><a href="#优雅降级和渐进增强" class="headerlink" title="优雅降级和渐进增强"></a>优雅降级和渐进增强</h4><ul>
+<li>渐进增强（Progressive Enhancement）：一开始就针对低版本浏览器进行构建页面，完成基本的功能，然后再针对高级浏览器进行效果、交互、追加功能达到更好的体验。</li>
+<li>优雅降级（Graceful Degradation）：一开始就构建站点的完整功能，然后针对浏览器测试和修复。比如一开始使用 CSS3 的特性构建了一个应用，然后逐步针对各大浏览器进行 hack 使其可以在低版本浏览器上正常浏览。</li>
+<li>其实渐进增强和优雅降级并非什么新概念，只是旧的概念换了一个新的说法。在传统软件开发中，经常会提到向上兼容和向下兼容的概念。渐进增强相当于向上兼容，而优雅降级相当于向下兼容</li>
+</ul>
+
     </div>
 
     
@@ -318,7 +368,10 @@
     <a href="/2020/11/12/%E7%AC%AC%E5%9B%9B%E5%A4%A9%E6%80%BB%E7%BB%93/" rel="prev" title="第四天总结">
       <i class="fa fa-chevron-left"></i> 第四天总结
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/14/%E7%AC%AC%E5%85%AD%E5%A4%A9%E6%80%BB%E7%BB%93/" rel="next" title="第六天总结">
+      第六天总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -377,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text">数据存储单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">JavaScript的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM%E2%80%94%E2%80%94%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">DOM——文档对象模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BOM%E2%80%94%E2%80%94%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">BOM——浏览器对象模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript%E7%9A%84typeof%E8%BF%94%E5%9B%9E%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">javascript的typeof返回哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%92%8C-%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="nav-number">6.</span> <span class="nav-text">&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null%E5%92%8Cundefined%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">null和undefined的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">什么是数据类型转换？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">9.</span> <span class="nav-text">运算符的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break-continue-return-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">10.</span> <span class="nav-text">break ,continue ,return 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arguments%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">11.</span> <span class="nav-text">arguments的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="nav-number">12.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E8%A7%A3%E6%9E%90"><span class="nav-number">13.</span> <span class="nav-text">预解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">14.</span> <span class="nav-text">创建对象的三种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1"><span class="nav-number">15.</span> <span class="nav-text">遍历对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-%E6%95%B0%E5%AD%A6%E5%AF%B9%E8%B1%A1-%E7%95%A5%E8%BF%87"><span class="nav-number">16.</span> <span class="nav-text">Math( )数学对象   略过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date-%E6%97%A5%E6%9C%9F%E5%AF%B9%E8%B1%A1-%E7%95%A5%E8%BF%87"><span class="nav-number">17.</span> <span class="nav-text">Date() 日期对象  略过</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%A6%82%E4%BD%95%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2%E7%9A%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">浏览器是如何渲染页面的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">数据存储单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">JavaScript的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM%E2%80%94%E2%80%94%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">DOM——文档对象模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BOM%E2%80%94%E2%80%94%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">BOM——浏览器对象模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#javascript%E7%9A%84typeof%E8%BF%94%E5%9B%9E%E5%93%AA%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">javascript的typeof返回哪些数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%92%8C-%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="nav-number">7.</span> <span class="nav-text">&#x3D;&#x3D;和&#x3D;&#x3D;&#x3D;的不同</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null%E5%92%8Cundefined%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">null和undefined的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">什么是数据类型转换？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">10.</span> <span class="nav-text">运算符的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#break-continue-return-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">11.</span> <span class="nav-text">break ,continue ,return 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#arguments%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">12.</span> <span class="nav-text">arguments的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="nav-number">13.</span> <span class="nav-text">作用域链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E8%A7%A3%E6%9E%90"><span class="nav-number">14.</span> <span class="nav-text">预解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">15.</span> <span class="nav-text">创建对象的三种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1"><span class="nav-number">16.</span> <span class="nav-text">遍历对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">17.</span> <span class="nav-text">内置对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Math-%E6%95%B0%E5%AD%A6%E5%AF%B9%E8%B1%A1-%E7%95%A5%E8%BF%87"><span class="nav-number">18.</span> <span class="nav-text">Math( )数学对象   略过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">19.</span> <span class="nav-text">创建数组的两种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84"><span class="nav-number">20.</span> <span class="nav-text">检测是否为数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">21.</span> <span class="nav-text">添加删除数组元素的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84"><span class="nav-number">22.</span> <span class="nav-text">翻转数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="nav-number">23.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http-%E5%92%8C-https-%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F%E5%A6%82%E4%BD%95%E7%81%B5%E6%B4%BB%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="nav-number">24.</span> <span class="nav-text">http 和 https 有何区别？如何灵活使用？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7%E5%92%8C%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA"><span class="nav-number">25.</span> <span class="nav-text">优雅降级和渐进增强</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

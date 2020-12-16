@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？1、什么是闭包？首先要理解JS中特殊变量的作用域：全局变量和局部变量  函数内部可以直接读取全局变量    函数内部声明的变量一定要用var声明，否则声明了一个全局变量 函数外部无法读取函数内的局部变量 例如下端代码：f2可以读取f1中的局部变量，反之f2作为返回值，那么就可以在f1的外部读它内部的变量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="期中">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/%E6%9C%9F%E4%B8%AD/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？1、什么是闭包？首先要理解JS中特殊变量的作用域：全局变量和局部变量  函数内部可以直接读取全局变量    函数内部声明的变量一定要用var声明，否则声明了一个全局变量 函数外部无法读取函数内的局部变量 例如下端代码：f2可以读取f1中的局部变量，反之f2作为返回值，那么就可以在f1的外部读它内部的变量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-16T10:36:19.286Z">
+<meta property="article:modified_time" content="2020-11-23T13:31:38.399Z">
+<meta property="article:author" content="Dmj1234">
+<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/%E6%9C%9F%E4%B8%AD/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>期中 | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/%E6%9C%9F%E4%B8%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          期中
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-16 18:36:19" itemprop="dateCreated datePublished" datetime="2020-12-16T18:36:19+08:00">2020-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-23 21:31:38" itemprop="dateModified" datetime="2020-11-23T21:31:38+08:00">2020-11-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？"><a href="#1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？" class="headerlink" title="1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？"></a>1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？</h4><p>1、什么是闭包？<br>首先要理解JS中特殊变量的作用域：全局变量和局部变量</p>
+<ol>
+<li>函数内部可以直接读取全局变量    <strong>函数内部声明的变量一定要用var声明，否则声明了一个全局变量</strong></li>
+<li>函数外部无法读取函数内的局部变量</li>
+<li>例如下端代码：f2可以读取f1中的局部变量，反之f2作为返回值，那么就可以在f1的外部读它内部的变量。<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">           <span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　alert(n);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　<span class="keyword">return</span> f2;</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="keyword">var</span> result=f1();</span><br><span class="line"></span><br><span class="line">　　result(); <span class="comment">// 999</span></span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">- 闭包站在作用域的角度就是能够读取**另外一个函数作用域**中的变量函数。</span></span><br><span class="line"><span class="string">  本质上：闭包就是将函数内部和外部连接起来的一座桥梁。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2、闭包的用途</span></span><br><span class="line"><span class="string">1. 可以读取函数内部的变量</span></span><br><span class="line"><span class="string">2. 让这些变量的值始终保存在内存中。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3、闭包的缺点</span></span><br><span class="line"><span class="string">1. 由于闭包保存在内存中，内存消耗很大，所以不能滥用，否则造成网页的性能问题。</span></span><br><span class="line"><span class="string">   为什么会这样呢？拿上面的例子来说原因就在f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终保存在内存中，不会再调用结束后，被垃圾回收机制回收。</span></span><br><span class="line"><span class="string">解决方法：在退出函数之前，将不适用的局部变量全部删除。</span></span><br><span class="line"><span class="string">1. 闭包会在父函数外部，改变父函数内部变量的值。如果把父函数当作对象object使用，把闭包当作公用的方法，把内部变量当作私有属性，这是一定要小心，不要改变父函数内部变量的值。</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">####  2、call、apply、bind 的用法</span></span><br><span class="line"><span class="string">call、apply、bind 的作用是改变函数的thi对象s的指向。</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"> <span class="keyword">var</span> xw = &#123;</span><br><span class="line">                name : <span class="string">&quot;小王&quot;</span>,</span><br><span class="line">                gender : <span class="string">&quot;男&quot;</span>,</span><br><span class="line">                age : <span class="number">24</span>,</span><br><span class="line">                say : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                alert(<span class="built_in">this</span>.name + <span class="string">&quot; , &quot;</span> + <span class="built_in">this</span>.gender + <span class="string">&quot; ,今年&quot;</span> + <span class="built_in">this</span>.age);                                </span><br><span class="line">                     &#125;</span><br><span class="line">            &#125;</span><br><span class="line">                <span class="keyword">var</span> xh = &#123;</span><br><span class="line">                name : <span class="string">&quot;小红&quot;</span>,</span><br><span class="line">                gender : <span class="string">&quot;女&quot;</span>,</span><br><span class="line">                age : <span class="number">18</span></span><br><span class="line">             &#125;</span><br><span class="line">                xw.say();</span><br></pre></td></tr></table></figure>
+此时say方法没有传参：</li>
+</ol>
+<ul>
+<li><p>call方法传参：xw:say:call(xh,”实验小学”,”六年级”);<br> call后面的参数与<strong>say方法中的参数是一一对应的</strong></p>
+</li>
+<li><p>apply方法传参：xw.say.apply(xh,[“实验小学”,”六年级”])；<br> apply的第二个参数必须是<strong>数组</strong>，数组中的元素是和say方法中的参数一一对应的      </p>
+</li>
+</ul>
+<ul>
+<li>bind方法传参：xw.say.bind(xh,”实验小学”,”六年级”)()；<br>等价于xw.say.bind(xh)(“实验小学”,”六年级”);<br>bind方法返回的是一个函数，可以在调用的时候再进行传参。</li>
+</ul>
+<h4 id="3、10-个-HTTP-状态码及状态码的意义"><a href="#3、10-个-HTTP-状态码及状态码的意义" class="headerlink" title="3、10 个 HTTP 状态码及状态码的意义"></a>3、10 个 HTTP 状态码及状态码的意义</h4><p> HTTP状态码分类<br>分类                   分类描述<br>1**    信息，           服务器收到请求，需要请求者继续执行操作<br>2**    成功，           操作被成功接收并处理<br>3**    重定向，        需要进一步的操作以完成请求<br>4**    客户端错误， 请求包含语法错误或无法完成请求<br>5**    服务器错误     服务器在处理请求的过程中发生了错误</p>
+<ul>
+<li>200：请求成功，一般用于GET与POST请求</li>
+<li>301：资源（网页等）被永久转移到其它URL</li>
+<li>404： 请求的资源（网页等）不存在</li>
+<li>500： 内部服务器错误</li>
+<li>405： 客户端请求中的方法被禁止</li>
+<li>202： 已接受。已经接受请求，但未处理完成</li>
+<li>206： 部分内容。服务器成功处理了部分GET请求</li>
+<li>302： 临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</li>
+<li>304： 未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。</li>
+<li>505：服务器不支持请求的HTTP协议的版本，无法完成处理</li>
+</ul>
+<h4 id="4、如何实现数组去重？"><a href="#4、如何实现数组去重？" class="headerlink" title="4、如何实现数组去重？"></a>4、如何实现数组去重？</h4><p><strong>方法一：创建一个新的临时数组来保存数组中已有的元素</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = [];     </span><br><span class="line">      <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="built_in">this</span>.length; i++</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">n.indexOf(<span class="built_in">this</span>[i]) == -<span class="number">1</span></span>)</span>&#123;</span><br><span class="line">            n.push(<span class="built_in">this</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a.unique());</span><br></pre></td></tr></table></figure>
+<p>第一种方法和第三种方法都使用了indexOf()，这个函数的执行机制也会遍历数组</p>
+<p><strong>方法2：使用哈希表存储已有的元素</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hash = &#123;&#125;,</span><br><span class="line">        n = [];     <span class="comment">//hash 作为哈希表, n为临时数组</span></span><br><span class="line">    <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="built_in">this</span>.length; i++</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">!hash[<span class="built_in">this</span>[i]]</span>)</span>&#123;         <span class="comment">//如果hash表中没有当前项</span></span><br><span class="line">            hash[<span class="built_in">this</span>[i]] = <span class="literal">true</span>;   <span class="comment">//存入hash表</span></span><br><span class="line">            n.push(<span class="built_in">this</span>[i]);        <span class="comment">//当前元素push到临时数组中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a.unique());</span><br></pre></td></tr></table></figure>
+<p>第二种使用了哈希表，是最快的</p>
+<p><strong>方法3：使用indexOf判断数组元素第一次出现的位置是否为当前位置</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> n = [<span class="built_in">this</span>[<span class="number">0</span>]]; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;<span class="built_in">this</span>.length; i++)    <span class="comment">//从第二项开始遍历</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果当前数组元素在数组中出现的第一次的位置不是i</span></span><br><span class="line">        <span class="comment">//说明是重复元素</span></span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params"><span class="built_in">this</span>.indexOf(<span class="built_in">this</span>[i]) == i</span>)</span>&#123;</span><br><span class="line">            n.push(<span class="built_in">this</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a.unique());</span><br></pre></td></tr></table></figure>
+<p>第一种方法和第三种方法都使用了indexOf()，这个函数的执行机制也会遍历数组，同时也有一个排序的复杂度的计算</p>
+<p><strong>方法4：先排序再去重</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123; <span class="keyword">return</span> a - b;&#125;);</span><br><span class="line">    <span class="keyword">var</span> n = [<span class="built_in">this</span>[<span class="number">0</span>]];</span><br><span class="line">    <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i=<span class="number">1</span>; i&lt;<span class="built_in">this</span>.length; i++</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params"><span class="built_in">this</span>[i] != <span class="built_in">this</span>[i-<span class="number">1</span>]</span>)</span>&#123;</span><br><span class="line">            n.push(<span class="built_in">this</span>[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a.unique());</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="5、DOM-事件相关：什么是事件委托、怎么阻止默认动作、怎么阻止事件冒泡"><a href="#5、DOM-事件相关：什么是事件委托、怎么阻止默认动作、怎么阻止事件冒泡" class="headerlink" title="5、DOM 事件相关：什么是事件委托、怎么阻止默认动作、怎么阻止事件冒泡"></a>5、DOM 事件相关：什么是事件委托、怎么阻止默认动作、怎么阻止事件冒泡</h4><ul>
+<li><p>什么是事件委托：<br>事件冒泡：<br>通俗易懂的来讲，就是当一个子元素的事件被触发的时候（如onclick事件），该事件会从事件源（被点击的子元素）开始逐级向上传播，触发父级元素的点击事件。<br>事件委托：<br>事件委托，将事件交由别人来执行，就是将子元素的事件通过冒泡的形式交由父元素来执行。<br>事件委托的核心原理：给父节点添加侦听器， 利用事件冒泡影响每一个子节点</p>
+</li>
+<li><p>怎么阻止默认动作<br>很多的网页元素都会有默认的行为，比如说当你点击一下超链接a标签的时候，它会有一个跳转的行为；当你在网页上点鼠标右键时会出现一个右键菜；当你在一个form表单里点击提交按钮时网页会产生提交行为并刷新网页，当你网页上滚动鼠标滚轮时，网页的滚动条会动等等。这些都叫事件的默认行为</p>
+<p>阻止默认行为：只要在绑定到这个行为事件的方法里最后加一句：return false;就可以了<br>但要强调注意的是：如果你的事件绑定是用addEventListener来实现的，那阻止默认行为必须用e.preventDefault=true。</p>
+</li>
+<li><p>怎么阻止事件冒泡<br>什么是JS事件冒泡<br>在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。  </p>
+<p>阻止方法：<br>方法一：event.stopPropagation( )</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//为所有button元素绑定click事件</span></span><br><span class="line">$(<span class="string">&quot;:button&quot;</span>).click( <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;button-click&quot;</span>);</span><br><span class="line">    <span class="comment">// 阻止事件冒泡到DOM树上</span></span><br><span class="line">    event.stopPropagation();</span><br><span class="line">    &#125; );</span><br></pre></td></tr></table></figure>
+<p>方法二：event.target<br>事件处理程序中的变量event保存着事件对象。而event.target属性保存着发生事件的目标元素。这个属性是DOM API中规定的，但是没有被所有浏览器实现 。jQuery对这个事件对象进行了必要的扩展，从而在任何浏览器中都能够使用这个属性。通过.target，可以确定DOM中首先接收到事件的元素（即实际被单击的元素）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> $(<span class="string">&#x27;#switcher&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;#switcher .button&#x27;</span>).toggleClass(<span class="string">&#x27;hidden&#x27;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line"> &#125;)</span><br><span class="line">  </span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> $(<span class="string">&#x27;#switcher&#x27;</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params">event.target==<span class="built_in">this</span></span>)</span>&#123;<span class="comment">//判断是否是当前绑定事件的元素元素触发的该事件</span></span><br><span class="line">  $(<span class="string">&#x27;#switcher .button&#x27;</span>).toggleClass(<span class="string">&#x27;hidden&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="6、JS-的继承：基于原型的继承、基于-class-的继承"><a href="#6、JS-的继承：基于原型的继承、基于-class-的继承" class="headerlink" title="6、JS 的继承：基于原型的继承、基于 class 的继承"></a>6、JS 的继承：基于原型的继承、基于 class 的继承</h4><ul>
+<li><p>原型链继承：即子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child，从而实现了继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">&#125; </span><br><span class="line">Person.prototype.hello = <span class="string">&quot;hello&quot;</span>; </span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  alert(<span class="built_in">this</span>.hello); </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">&#125; </span><br><span class="line">Child.prototype = <span class="keyword">new</span> Person();<span class="comment">//这行的作用是：将Parent中将所有通过prototype追加的属性和方法都追加到Child，从而实现了继承 </span></span><br><span class="line">Child.prototype.world = <span class="string">&quot;world&quot;</span>; </span><br><span class="line">Child.prototype.sayWorld = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">  alert(<span class="built_in">this</span>.world); </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> Child(); </span><br><span class="line">c.sayHello(); </span><br><span class="line">c.sayWorld(); </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>class类的继承：通过<strong>extends</strong>关键字实现类的继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getAge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.age; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;我覆盖了父级的方法,&#x27;</span>+ <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">getScore</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;我是子级新增的方法,&#x27;</span>+<span class="built_in">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student(<span class="string">&#x27;有鱼&#x27;</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sut1.getName());<span class="comment">// 我覆盖了父级的方法,有鱼</span></span><br><span class="line"><span class="built_in">console</span>.log(sut1.getAge());<span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(sut1.getScore());<span class="comment">// 我是子级新增的方法,有鱼</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>两者联系和区别(优缺点)，关于原型继承：<br>1、原型继承有别于类继承是因为继承不在对象本身，而在对象的原型上    (prototype);<br>2、每一个对象都有原型，在浏览器中它体现在一个隐藏的__proto__属性上<br>3、当一个对象需要调用方法时，它会去最近的原型上查找该方法，如果没有找到，它会再次往下继续查找，逐级查找，一直找到要找的方法，这些查找原型构成了该对象的原型链条。<br>4、原型最后指向的是null，原型继承，就是将父对象的方法给子类的原型，但是子类的构造函数中不拥有这些方法和属性。</p>
+<p>关于类的继承和原型对比起来，构造函数（类）式继承的不同：<br>1、构造函数继承的方法都会存在父对象之中，每一次实例都将function保存在内存中，这样的做法会带来性能上的问题<br>2、继承是不可变的，在运行时，无法修改或者添加新的方法，这种方式是一种固步自封死方法<br>3、原型继承是通过改变原型链而对子类进行修改的，另外就是类式继承不支持多重继承，而对于原型继承来说，只需要写好extend对 对象进行扩展。</p>
+<h4 id="7、数组排序"><a href="#7、数组排序" class="headerlink" title="7、数组排序"></a>7、数组排序</h4><p>第一种方式：JS内置API</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 =[<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">5</span>];</span><br><span class="line"> arr1.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line"> <span class="comment">//  return a - b; 升序的顺序排列</span></span><br><span class="line"> <span class="keyword">return</span> b - a; <span class="comment">// 降序的顺序排列</span></span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="built_in">console</span>.log(arr1);</span><br></pre></td></tr></table></figure>
+
+<p>第二种：创建新数组进行遍历进行比较</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr  =[<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">5</span>];</span><br><span class="line">     <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++</span>)</span>&#123;</span><br><span class="line">         <span class="comment">// 第一个比较四次，第二个比较三次，第三个比较两次</span></span><br><span class="line">    <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> j=<span class="number">0</span>; j&lt;arr.length-i; j++</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">arr[j]&gt;arr[j+<span class="number">1</span>]</span>)</span>&#123;</span><br><span class="line">            <span class="comment">//判断完成后，数字进行交换</span></span><br><span class="line">            <span class="keyword">var</span> temp=arr[j];</span><br><span class="line">            arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">            arr[j+<span class="number">1</span>]=temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
+
+<p>第三种：选择法，拿第一个数字和其他数字依次比较，小的放在第一个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr  =[<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++</span>)</span>&#123;</span><br><span class="line"> <span class="comment">// 为了能不断的使用第一位和后面的作比较，在能拿到第一个数据的时候，存到一个ls变量中</span></span><br><span class="line"> <span class="comment">// 将来使用这个ls变量作比较，就不影响真正的第一位的数据了,变量index为此时的索引</span></span><br><span class="line">     <span class="keyword">var</span> ls=arr[i];  </span><br><span class="line">     <span class="keyword">var</span> index=i; </span><br><span class="line">    <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> j=i+<span class="number">1</span>;j&lt;arr.length;j++</span>)</span>&#123;</span><br><span class="line">      <span class="function"><span class="title">if</span>(<span class="params">arr[i]&gt;arr[j]</span>)</span>&#123;</span><br><span class="line">           ls=arr[j]   <span class="comment">//循环进行比较，判断出最小的存放在ls中</span></span><br><span class="line">           index=j     <span class="comment">//此时最小的数字的索引为j</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//比较完成后，交换数组中的数据</span></span><br><span class="line">   arr[index]=arr[i];  </span><br><span class="line">   arr[i]=ls;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(arr)</span><br></pre></td></tr></table></figure>
+
+<h4 id="8、-Promise-的用途"><a href="#8、-Promise-的用途" class="headerlink" title="8、 Promise 的用途"></a>8、 Promise 的用途</h4><ul>
+<li><p>如何创建一个new Promise<br> 语法：  return new Promise((resolve,reject) =&gt; {} )</p>
+</li>
+<li><p>如何使用 Promise.prototype.then<br>在多个含有异步操作的函数之间有依赖关系时，为清晰的展示依赖关系，建议使用如下方法。<br>当then方法返回一个新的Promise实例（注意，不是原来那个Promise实例）。可以采用链式写法，即then方法后面再调用另一个then方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getJSON(<span class="string">&quot;/post/1.json&quot;</span>).then(</span><br><span class="line">  post =&gt; getJSON(post.commentURL)</span><br><span class="line">).then(</span><br><span class="line">  comments =&gt; <span class="built_in">console</span>.log(<span class="string">&quot;resolved: &quot;</span>, comments),</span><br><span class="line">  err =&gt; <span class="built_in">console</span>.log(<span class="string">&quot;rejected: &quot;</span>, err)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何使用 Promise.all<br> Promise.all(iterable) 方法返回一个 Promise 实例，此实例在 iterable 参数内所有的 promise 都“完成（resolved）”或参数中不包含 promise 时回调完成（resolve）；如果参数中  promise 有一个失败（rejected），此实例回调失败（reject），失败原因的是第一个失败 promise 的结果。</p>
+<p>返回值：<br>1.如果传入的参数是一个空的可迭代对象，则返回一个已完成（already resolved）状态的 Promise。</p>
+</li>
+</ul>
+<p> 2.如果传入的参数不包含任何 promise，则返回一个异步完成（asynchronously resolved） Promise。注意：Google Chrome 58 在这种情况下返回一个已完成（already resolved）状态的 Promise。</p>
+<p> 3.其它情况下返回一个处理中（pending）的Promise。这个返回的 promise 之后会在所有的 promise 都完成或有一个 promise 失败时异步地变为完成或失败。 见下方关于“Promise.all 的异步或同步”示例。返回值将会按照参数内的 promise 顺序排列，而不是由调用 promise 的完成顺序决定。</p>
+<ul>
+<li>如何使用 Promise.race<br>Promise.race()方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。<br>Promise.race([promise1, promise2]).then(success1, fail1)<br>promise1和promise2只要有一个成功就会调用success1</li>
+</ul>
+<h4 id="9、什么是同源、什么是跨域、JSONP-跨域、CORS-跨域"><a href="#9、什么是同源、什么是跨域、JSONP-跨域、CORS-跨域" class="headerlink" title="9、什么是同源、什么是跨域、JSONP 跨域、CORS 跨域"></a>9、什么是同源、什么是跨域、JSONP 跨域、CORS 跨域</h4><ul>
+<li><p>同源定义：如果两个页面的协议，端口（如果有指定）和域名都相同，则两个页面具有相同的源。<br>window.origin 或location.origin可以得到当前源<br>源=协议+域名+端口号<br>同源策略是浏览器的一个安全功能，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。</p>
+</li>
+<li><p>什么是跨域<br>跨域，是指浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对JavaScript实施的安全限制。<br>同源策略限制了一下行为：<br>Cookie、LocalStorage 和 IndexDB 无法读取<br>DOM 和 JS 对象无法获取<br>Ajax请求发送不出去</p>
+</li>
+<li><p>JSONP 跨域<br>jsonp的核心原理就是目标页面回调本地页面的方法,并带入参数<br>为什么需要JSONP?<br>由于浏览器安全限制,数据是不可以直接跨域(包括不同的根域名、二级域名、或不同的端口)请求的,除非目标域名授权你可以访问。比如设置crossdomain.xml 或在http头部里授权<br>但是crossdomain.xml会允许设置的网站访问所有的数据,而头部设置又非常麻烦。<br>所以可以在你授权的数据返回里设置jsonp来让该接口允许所有的调用者获取数据。</p>
+</li>
+<li><p>CORS 跨域<br> 全称是”跨域资源共享”（Cross-origin resource sharing）<br>整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。<br>因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</p>
+</li>
+</ul>
+<h4 id="说说你对前端的理解"><a href="#说说你对前端的理解" class="headerlink" title="说说你对前端的理解"></a>说说你对前端的理解</h4><p>程序员，一个需要不断学习的职业，程序员的快乐源自不断的学习和不断的实现。而前端技术更新迭代也快，加倍快乐！</p>
+<p>接触前端有段时间了。对前端的认识不断加深，从最开始对前端的认识仅仅网页界面 ，后来发现我们会真正的注重用户体验，所以每个页面都会响应式布局，从PC端适配到的移动端，也会为了用户体验做很多功能之外的更加合理的处理。而且随着学习的不断深入，慢慢接触到Javascript ，封装好的各种库，各种框架，跟后端的各种交互，让我明白了前端既要负责给用户提供交互做好用户体验，又要跟后端数据交互，所以对javascript语法和特性都需要深入的了解。前端在慢慢向全栈的方向发展，现在纯前端越来越少了。我需要往全栈方向精进，在学习过程中要培养自己的逻辑能力和抽象能力以及解决问题的能力，提升独立开发的能力。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！#</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/16/%E5%8E%9F%E7%94%9F%E4%B8%8EjQuery%E5%8C%BA%E5%88%AB/" rel="prev" title="js方法">
+      <i class="fa fa-chevron-left"></i> js方法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/16/%E8%99%9A%E6%8B%9FDOM/" rel="next" title="虚拟DOM">
+      虚拟DOM <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E9%97%AD%E5%8C%85%EF%BC%9F%E9%97%AD%E5%8C%85%E7%9A%84%E7%94%A8%E9%80%94%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E9%97%AD%E5%8C%85%E7%9A%84%E7%BC%BA%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1、什么是闭包？闭包的用途是什么？闭包的缺点是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%8110-%E4%B8%AA-HTTP-%E7%8A%B6%E6%80%81%E7%A0%81%E5%8F%8A%E7%8A%B6%E6%80%81%E7%A0%81%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">3、10 个 HTTP 状态码及状态码的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">4、如何实现数组去重？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81DOM-%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%E3%80%81%E6%80%8E%E4%B9%88%E9%98%BB%E6%AD%A2%E9%BB%98%E8%AE%A4%E5%8A%A8%E4%BD%9C%E3%80%81%E6%80%8E%E4%B9%88%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="nav-number">4.</span> <span class="nav-text">5、DOM 事件相关：什么是事件委托、怎么阻止默认动作、怎么阻止事件冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81JS-%E7%9A%84%E7%BB%A7%E6%89%BF%EF%BC%9A%E5%9F%BA%E4%BA%8E%E5%8E%9F%E5%9E%8B%E7%9A%84%E7%BB%A7%E6%89%BF%E3%80%81%E5%9F%BA%E4%BA%8E-class-%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">5.</span> <span class="nav-text">6、JS 的继承：基于原型的继承、基于 class 的继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7%E3%80%81%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F"><span class="nav-number">6.</span> <span class="nav-text">7、数组排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8%E3%80%81-Promise-%E7%9A%84%E7%94%A8%E9%80%94"><span class="nav-number">7.</span> <span class="nav-text">8、 Promise 的用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8C%E6%BA%90%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%E3%80%81JSONP-%E8%B7%A8%E5%9F%9F%E3%80%81CORS-%E8%B7%A8%E5%9F%9F"><span class="nav-number">8.</span> <span class="nav-text">9、什么是同源、什么是跨域、JSONP 跨域、CORS 跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">9.</span> <span class="nav-text">说说你对前端的理解</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

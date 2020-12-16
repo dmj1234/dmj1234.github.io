@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Web服务器搭建什么是WAMPServer软件？  Window操作系统 Apache （喊他：阿帕奇）世界排名第一的服务器软件，简单，快和稳定     MySQL 开源免费得的数据库软件，体积小，成本低，快 PHP 超文本预处理器，直接将代码嵌入HTML文档中执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax(第二部分-bilibili第二学习)">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/Ajax(%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86)/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="Web服务器搭建什么是WAMPServer软件？  Window操作系统 Apache （喊他：阿帕奇）世界排名第一的服务器软件，简单，快和稳定     MySQL 开源免费得的数据库软件，体积小，成本低，快 PHP 超文本预处理器，直接将代码嵌入HTML文档中执行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-16T10:36:18.638Z">
+<meta property="article:modified_time" content="2020-11-26T09:05:38.993Z">
+<meta property="article:author" content="Dmj1234">
+<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/Ajax(%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ajax(第二部分-bilibili第二学习) | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/Ajax(%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ajax(第二部分-bilibili第二学习)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-16 18:36:18" itemprop="dateCreated datePublished" datetime="2020-12-16T18:36:18+08:00">2020-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 17:05:38" itemprop="dateModified" datetime="2020-11-26T17:05:38+08:00">2020-11-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="Web服务器搭建"><a href="#Web服务器搭建" class="headerlink" title="Web服务器搭建"></a>Web服务器搭建</h4><p>什么是WAMPServer软件？</p>
+<ul>
+<li>Window操作系统</li>
+<li>Apache （喊他：阿帕奇）世界排名第一的服务器软件，简单，快和稳定    </li>
+<li>MySQL 开源免费得的数据库软件，体积小，成本低，快</li>
+<li>PHP 超文本预处理器，直接将代码嵌入HTML文档中执行<a id="more"></a>
+<h4 id="这里我们学下PHP的基础"><a href="#这里我们学下PHP的基础" class="headerlink" title="这里我们学下PHP的基础"></a>这里我们学下PHP的基础</h4><?php
+
+</li>
+</ul>
+<p>?&gt;<br>这是基本语法。定义变量用$， 打印用$变量 = xxx;<br>PHP属于后端开发的语言，后端编写的代码必须放到服务器的环境下运行。<br>必须把服务器放到对应的文件夹下，通过浏览器找到服务器，找到服务器下的文件夹，文件夹里对应的文件带能运行<br>安装初始文件夹在WWW文件夹里面.</p>
+<p>Get和Post的理解：</p>
+<ul>
+<li>可以通过form标签的method属性指定发送请求的类型</li>
+<li>如果是get请求，会将提交的数据拼接到URL的后面</li>
+<li>如果是post请求，会将提交的数据放到请求头中</li>
+</ul>
+<p>Get请求和POST请求的异同：</p>
+<ul>
+<li>相同：<br>都是将数据提交到远程服务器</li>
+<li>不同：<br>提交数据大小的限制：GET请求对数据大小限制、POST请求对数据没有大小限制<br>请求应用场景：前者提交非敏感，后者提交敏感信息</li>
+</ul>
+<p>####文件上传</p>
+<p>//echo “post page”<br>// 1.获取上传文件对应的字典<br>$fileInfo = $_FILES[“upFile”];<br>//print_r($_FILES);<br>// 2.获取上传文件的名称<br>$fileName = $fileInfo[“name”];<br>//// 3.获取上传文件保存的临时路径<br>$filePath = $fileInfo[“tmp_name”];</p>
+<p>echo $fileName;<br>echo “<br>“;<br>echo $filePath;</p>
+<p>// 4.移动文件<br>move_uploaded_file($filePath, “./images/“.$fileName);<br>//文件名称需要拼接，在js中用+，PHP用.</p>
+<p>注意:<br>1.上传文件一般使用POST提交<br>2.上传文件必须设置enctype=”multipart/form-data”<br>3.上传的文件在PHP中可以通过$_FILES获取<br>4.PHP中文件默认会上传到一个临时目录, 接收完毕之后会自动删除</p>
+<p>默认情况下服务器对上传文件的大小是有限制的, 如果想修改上传文件的限制可以修改php.ini文件<br>file_uploads = On   ; 是否允许上传文件 On/Off 默认是On<br>upload_max_filesize = 2048M       ; 上传文件的最大限制<br>post_max_size = 2048M             ; 通过Post提交的最多数据<br>max_execution_time = 30000      ; 脚本最长的执行时间 单位为秒<br>max_input_time = 30000          ; 接收提交的数据的时间限制 单位为秒<br>memory_limit = 2048M            ; 最大的内存消耗</p>
+<h4 id="Ajax使用步骤"><a href="#Ajax使用步骤" class="headerlink" title="Ajax使用步骤"></a>Ajax使用步骤</h4><p>//1创建异步对象<br>var xmlhttp=new XMLHttpRequest();</p>
+<p>//2设置请求方式、请求地址<br>/*<br>method：请求的类型；GET 或 POST<br>url：文件在服务器上的位置<br>async：true（异步）或 false（同步）<br>*/<br>xmlhttp.open(“GET” , “ajax-get.php” , true)<br>//3发送请求<br>xmlhttp.send();</p>
+<p>//4监听转台的变化<br>xmlhttp.onreadystatechange =function (ev2){<br>/*<br>0: 请求未初始化<br>1: 服务器连接已建立<br>2: 请求已接收<br>3: 请求处理中<br>4: 请求已完成，且响应已就绪<br>*/<br>if(xmlhttp.readyState ===4 ){<br>// 判断是否请求成功<br>if(xmlhttp.status &gt;= 200 &amp;&amp; xmlhttp.status &lt; 300 ||<br>xmlhttp.status === 304){<br>// 5.处理返回的结果<br>// alert(“请求成功”);<br>alert(xhr.responseText);<br>}else{<br>alert(“请求失败”);<br>}<br>}</p>
+<h4 id="Ajax在IE中遇到的问题"><a href="#Ajax在IE中遇到的问题" class="headerlink" title="Ajax在IE中遇到的问题"></a>Ajax在IE中遇到的问题</h4><ul>
+<li><p>兼容低版本问题：添加以下代码   ActiveXObject为核心<br>var xhr;<br>if (window.XMLHttpRequest)<br>{// code for IE7+, Firefox, Chrome, Opera, Safari<br>xhr=new XMLHttpRequest();<br>}<br>else<br>{// code for IE6, IE5<br>xhr=new ActiveXObject(“Microsoft.XMLHTTP”);<br>}</p>
+</li>
+<li><p>在IE浏览器中, 如果通过Ajax发送GET请求, 那么IE浏览器认为，同一个URL只有一个结果，通过添加一个随机地址<br>xhr.open(“GET”,”05-ajax-get.txt?t=”+(new Date().getTime()),true);<br>xhr.send();</p>
+</li>
+</ul>
+<h4 id="cookie作用"><a href="#cookie作用" class="headerlink" title="cookie作用"></a>cookie作用</h4><ul>
+<li>将网页中的数据保存到浏览器中</li>
+<li>cookie生命周期:<br>默认情况下生命周期是一次会话(浏览器被关闭)<br>如果通过expires=设置了过期时间, 并且过期时间没有过期, 那么下次打开浏览器还是存在<br>如果通过expires=设置了过期时间, 并且过期时间已经过期了,那么会立即删除保存的数据</li>
+<li>cookie注意点:<br>cookie默认不会保存任何的数据<br>cookie不能一次性保存多条数据, 要想保存多条数据,只能一条一条的设置<br>cookie有大小和个数的限制<br>个数限制: 20~50<br>大小限制: 4KB左右</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！#</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/16/Ajax(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/" rel="prev" title="Ajax(第一部分)">
+      <i class="fa fa-chevron-left"></i> Ajax(第一部分)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/16/Axios%20(Cheat%20Sheet)/" rel="next" title="Axios (Cheat Sheet)">
+      Axios (Cheat Sheet) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">Web服务器搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%88%91%E4%BB%AC%E5%AD%A6%E4%B8%8BPHP%E7%9A%84%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">这里我们学下PHP的基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">Ajax使用步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax%E5%9C%A8IE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">Ajax在IE中遇到的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie%E4%BD%9C%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">cookie作用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

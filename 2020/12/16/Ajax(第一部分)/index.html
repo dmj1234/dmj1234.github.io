@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="什么是Ajax Ajax:即javascript和XML。Ajax是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量的数据交换，Ajax可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下。对网页的某个部分进行更新。而传统的网页不使用Ajax的话，如果需要更新内容，必须加载整个网页面。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax(第一部分)">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/Ajax(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="什么是Ajax Ajax:即javascript和XML。Ajax是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量的数据交换，Ajax可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下。对网页的某个部分进行更新。而传统的网页不使用Ajax的话，如果需要更新内容，必须加载整个网页面。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-16T10:36:18.610Z">
+<meta property="article:modified_time" content="2020-11-25T17:29:47.649Z">
+<meta property="article:author" content="Dmj1234">
+<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/Ajax(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ajax(第一部分) | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/Ajax(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ajax(第一部分)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-16 18:36:18" itemprop="dateCreated datePublished" datetime="2020-12-16T18:36:18+08:00">2020-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 01:29:47" itemprop="dateModified" datetime="2020-11-26T01:29:47+08:00">2020-11-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h4><ul>
+<li>Ajax:即javascript和XML。Ajax是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量的数据交换，Ajax可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下。对网页的某个部分进行更新。而传统的网页不使用Ajax的话，如果需要更新内容，必须加载整个网页面。</li>
+</ul>
+<a id="more"></a>
+<h4 id="Ajax的工作原理"><a href="#Ajax的工作原理" class="headerlink" title="Ajax的工作原理"></a>Ajax的工作原理</h4><ul>
+<li>客户端发送请求，请求交给ajax的xhr，xhr把请求提交给服务，服务器进行业务处理，服务器响应数据交给xhr对象，<strong>xhr对象</strong>接受数据，由javascript把数据写到页面上。</li>
+<li><strong>我在这里理解为：xhr是实现了局部刷新的产物。</strong></li>
+</ul>
+<h4 id="同步和异步的区别"><a href="#同步和异步的区别" class="headerlink" title="同步和异步的区别"></a>同步和异步的区别</h4><p>  ”同步“就好比：你去外地上学(人生地不熟)，突然生活费不够了；此时你决定打电话回家，通知家里转生活费过来，可是当你拨出电话时，对方一直处于待接听状态(即：打不通，联系不上)，为了拿到生活费，你就不停的oncall、等待，最终可能不能及时要到生活费，导致你今天要做的事都没有完成，而白白花掉了时间。<br>  “异步”就是：在你打完电话发现没人接听时，猜想：对方可能在忙，暂时无法接听电话，所以你发了一条短信(或者语音留言，亦或是其他的方式)通知对方后便忙其他要紧的事了；这时你就不需要持续不断的拨打电话，还可以做其他事情；待一定时间后，对方看到你的留言便回复响应你，当然对方可能转钱也可能不转钱。但是整个一天下来，你还做了很多事情。 或者说你找室友临时借了一笔钱，又开始<br>happy的上学时光了。</p>
+<ul>
+<li><p>同步交互：指发送一个请求,需要等待返回,然后才能够发送下一个请求，有个等待过程；</p>
+</li>
+<li><p>异步交互：指发送一个请求,不需要等待返回,随时可以再发送下一个请求，即不需要等待。 区别：一个需要等待，一个不需要等待，在部分情况下，我们的项目开发中都会优先选择不需要等待的异步交互方式。</p>
+</li>
+<li><p>如果一个函数的返回值处于<br>setTimeout<br>AJAX（即XMLHttpRequest）<br>AddEventListener（监听事件）<br>那么就是异步</p>
+</li>
+</ul>
+<h4 id="实现Ajax的基本步骤"><a href="#实现Ajax的基本步骤" class="headerlink" title="实现Ajax的基本步骤"></a>实现Ajax的基本步骤</h4><ul>
+<li>要实现一个AJAX异步调用和局部刷新，需要以下几个步骤:</li>
+<li>创建XMLHttpRequest对象，即创建一个异步调用对象</li>
+<li>设置回调函数</li>
+<li>使用open方法与服务器建立连接</li>
+<li>向服务器发送数据</li>
+<li>在回调函数中针对不同的响应状态进行处理</li>
+</ul>
+<h4 id="onreadystatechange事件"><a href="#onreadystatechange事件" class="headerlink" title="onreadystatechange事件"></a>onreadystatechange事件</h4><ul>
+<li>当请求被发送到服务器时，我们需要执行 一些基于响应的任务。每当readyState改变时，就会触发onreadystatechange事件。</li>
+<li>readyState属性存有XMLHttpRequest的状态信息。</li>
+</ul>
+<p>XMLHttpRequest对象的三个重要属性：</p>
+<ul>
+<li><strong>onreadystatechange</strong>            存储函数（或函数名）每当readyState属性改变时，就会调用该函数。</li>
+<li><strong>readyState</strong>       存有XMLHttpRequest的状态。从0到4发生变化。<br> 0：请求未初始化<br> 1：服务器连接以建立<br> 2：请求已接收<br> 3：请求处理中<br> 4：请求已完成，且响应已就绪</li>
+<li><strong>status</strong><br>200：”OK”<br>400：未找到网页                          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (xmlhttp.readyState==<span class="number">4</span> &amp;&amp; xmlhttp.status==<span class="number">200</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">&quot;myDiv&quot;</span>).innerHTML=xmlhttp.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="在回调函数中针对不同的响应状态进行处理"><a href="#在回调函数中针对不同的响应状态进行处理" class="headerlink" title="在回调函数中针对不同的响应状态进行处理"></a>在回调函数中针对不同的响应状态进行处理</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 判断异步对象的状态</span></span><br><span class="line">  <span class="function"><span class="title">if</span>(<span class="params">xhr.readyState == <span class="number">4</span></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 判断交互是否成功</span></span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">xhr.status == <span class="number">200</span></span>)</span> &#123;</span><br><span class="line">      <span class="comment">// 获取服务器响应的数据</span></span><br><span class="line">      <span class="keyword">var</span> res = xhr.responseText</span><br><span class="line">      <span class="comment">// 解析数据</span></span><br><span class="line">      res = <span class="built_in">JSON</span>.parse(res)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回调面试题<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>].map(<span class="built_in">parseInt</span>)</span><br><span class="line"><span class="built_in">console</span>.log(array)</span><br><span class="line">结果：[<span class="number">1</span>,<span class="literal">NaN</span>,<span class="literal">NaN</span>]</span><br><span class="line"></span><br><span class="line">原本写法：</span><br><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>].map(<span class="function">(<span class="params">item,i,arr</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(item)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array)</span><br><span class="line">结果：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment">// 简略写法时，传参和调参要一样，map传三个参数，</span></span><br><span class="line"><span class="comment">// 简化写法相当于return parseInt(item,i,arr)</span></span><br><span class="line"><span class="comment">// parseInt只接受两个参数(1,0,arr)=&gt;</span></span><br><span class="line"><span class="comment">// parseInt(1,0,arr) =&gt; 1</span></span><br><span class="line"><span class="comment">// parseInt(2,1,arr) =&gt; NaN//把2作为1进制的数进行解析，而1进制只有0所以NaN</span></span><br><span class="line"><span class="comment">// parseInt(3,2,arr) =&gt; NaN</span></span><br><span class="line"></span><br><span class="line">正确写法：</span><br><span class="line"><span class="keyword">const</span> array = [<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>].map(<span class="function">(<span class="params">item</span>)=&gt;</span><span class="built_in">parseInt</span>(item))</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="何为Promise"><a href="#何为Promise" class="headerlink" title="何为Promise"></a>何为Promise</h4><ul>
+<li>Promise是一个构造函数，它有resolve、reject、race等静态方法，它的原型prototype上有then、catch。因此只要作为Promise的实例，都可以共享调用Promise.prototype的方法（then、catch）</li>
+<li>语法：  return new Promise((resolve,reject) =&gt; {} )</li>
+</ul>
+<h4 id="额外补充知识点："><a href="#额外补充知识点：" class="headerlink" title="额外补充知识点："></a>额外补充知识点：</h4><ul>
+<li>background-size 属性:<br> background-size: length|percentage|cover|contain;<br> cover：将图像完全覆盖背景定位区域的最小或最大。<br> contain：保持图像的纵横比并将图像缩放成适合背景区域的最大大小。<br>如果想要视野模糊，就要配合另一个属性。</li>
+<li> filter: blur     滤镜，值越小越不模糊，反之。</li>
+</ul>
+<h4 id="！！！-其它"><a href="#！！！-其它" class="headerlink" title="！！！ 其它"></a>！！！ 其它</h4><h4 id="动画队列"><a href="#动画队列" class="headerlink" title="动画队列"></a>动画队列</h4><ul>
+<li>现象：鼠标在下拉区域，快速移入移出，相当于放了好多球，出口只有一个，因此会等待前面一个一个执行完成。这样影响了体验。</li>
+<li>解决方法：在jquery中如果需要执行动画，建议在执行动画之前先调用stop方法，然后再执行动画。</li>
+</ul>
+<h4 id="删除节点remove和empty的却别"><a href="#删除节点remove和empty的却别" class="headerlink" title="删除节点remove和empty的却别"></a>删除节点remove和empty的却别</h4><ul>
+<li>remove（）删除指定元素</li>
+<li>empty（）    删除指定元素的内容和子元素，指定元素自身不会被删除，例如删除div里面的内容但是div元素还在。</li>
+</ul>
+<h4 id="jQ为什么要给自己传递一个window参数？"><a href="#jQ为什么要给自己传递一个window参数？" class="headerlink" title="jQ为什么要给自己传递一个window参数？"></a>jQ为什么要给自己传递一个window参数？</h4><pre><code> 为什么自己接收一个undefined参数？</code></pre>
+<ul>
+<li><p>补充：jQuery的本质是一个闭包，用来避免多个框架的冲突。<br>如何访问从外界访问内部定义的局部变量。  window.xxx = xxx;</p>
+</li>
+<li><p>为了方便后期压缩代码，提升查找效率</p>
+</li>
+<li><p>传入null、undefined、NaN、0、false，返回空的jQuery对象</p>
+</li>
+<li><p>传入字符串，会将创建好的DOM元素存储到jQuery对象中返回</p>
+</li>
+<li><p>数组，将数组中存储的元素存储到jQuery对象中返回</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！#</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/16/@vue%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE/" rel="prev" title="vue创建项目学习">
+      <i class="fa fa-chevron-left"></i> vue创建项目学习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/16/Ajax(%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86)/" rel="next" title="Ajax(第二部分-bilibili第二学习)">
+      Ajax(第二部分-bilibili第二学习) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAjax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">Ajax的工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">同步和异步的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0Ajax%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.</span> <span class="nav-text">实现Ajax的基本步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">onreadystatechange事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E9%92%88%E5%AF%B9%E4%B8%8D%E5%90%8C%E7%9A%84%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">在回调函数中针对不同的响应状态进行处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%95%E4%B8%BAPromise"><span class="nav-number">7.</span> <span class="nav-text">何为Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%9D%E5%A4%96%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">额外补充知识点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%81%EF%BC%81%EF%BC%81-%E5%85%B6%E5%AE%83"><span class="nav-number">9.</span> <span class="nav-text">！！！ 其它</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E7%94%BB%E9%98%9F%E5%88%97"><span class="nav-number">10.</span> <span class="nav-text">动画队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9remove%E5%92%8Cempty%E7%9A%84%E5%8D%B4%E5%88%AB"><span class="nav-number">11.</span> <span class="nav-text">删除节点remove和empty的却别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jQ%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%BB%99%E8%87%AA%E5%B7%B1%E4%BC%A0%E9%80%92%E4%B8%80%E4%B8%AAwindow%E5%8F%82%E6%95%B0%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">jQ为什么要给自己传递一个window参数？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

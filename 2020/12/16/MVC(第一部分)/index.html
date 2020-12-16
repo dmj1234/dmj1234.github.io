@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="MVC是什么 M是Model，数据类型，负责数据相关的事物，问题的本质就是Model，解决问题就是给问题建立Model  V是View，视图，负责用户界面  C是Controller控制器，负责监听用户事件，然后调用M和V更新数据和视图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC学习">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/MVC(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="MVC是什么 M是Model，数据类型，负责数据相关的事物，问题的本质就是Model，解决问题就是给问题建立Model  V是View，视图，负责用户界面  C是Controller控制器，负责监听用户事件，然后调用M和V更新数据和视图">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-16T10:36:18.924Z">
+<meta property="article:modified_time" content="2020-11-26T09:19:04.230Z">
+<meta property="article:author" content="Dmj1234">
+<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/MVC(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MVC学习 | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/MVC(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MVC学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-16 18:36:18" itemprop="dateCreated datePublished" datetime="2020-12-16T18:36:18+08:00">2020-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-26 17:19:04" itemprop="dateModified" datetime="2020-11-26T17:19:04+08:00">2020-11-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="MVC是什么"><a href="#MVC是什么" class="headerlink" title="MVC是什么"></a>MVC是什么</h4><ul>
+<li><p>M是Model，数据类型，负责数据相关的事物，问题的本质就是Model，解决问题就是给问题建立Model</p>
+</li>
+<li><p>V是View，视图，负责用户界面</p>
+</li>
+<li><p>C是Controller控制器，负责监听用户事件，然后调用M和V更新数据和视图</p>
+<a id="more"></a>
+<p>在知乎上看到一个题主用场景解释了三者的关系：</p>
+</li>
+<li><p>在一个阳光明媚的午后, 你跟千千万万的小白领一样来到了银河SOHO附近的星巴克. 你径直走到一位棕围裙的咖啡师面前:<br>“您好, 给我来一个中杯的拿铁”<br>“您要的是这个么?” 咖啡师指着Tall的杯子微笑地问道<br>“嗯, 这个中杯” 你指着Grande的杯子说道<br>“对不起先生, 那个是大杯, 这个才是中杯” 咖啡师继续保持尴尬而不失礼貌的微笑, 指着Tall的杯子说道<br>“你这不是大中小三个杯子吗? 我要这个中杯” 你觉得自己理直气壮<br>“对不起先生, 那个是大杯. 这才是中杯…中杯, 大杯, 特大杯” 咖啡师指着Tall, Grande, Venti解释道<br>好了…你不是罗永浩, 你也不用扇自己几个嘴巴子.</p>
+</li>
+<li><p>重点是在刚才这个情景里, 你是User, 你点的中杯拿铁就是你的User Request.<br>对咖啡师来说, 一杯拿铁真是low爆了, 根本无法展现其棕围裙的功力. 不过是这么几步:</p>
+<ol>
+<li>用浓缩咖啡机把咖啡豆磨成粉</li>
+<li>加热牛奶打奶泡</li>
+<li>把磨碎的咖啡粉放入过滤斗里, 锁在冲煮头上</li>
+<li>按下double选项, 制作一杯浓缩咖啡</li>
+<li>把牛奶倒入浓缩咖啡中并按心情决定是否拉一个花</li>
+<li>把咖啡递给你</li>
+</ol>
+<p>咖啡师的大脑里存储着这些步骤, 她的脑瓜子就是Controller.<br>只要你点的饮品(User Request)是她能理解和制作的, 她就可以立即开始工作.<br>如果你非捣乱, 来星巴克点豆汁, 咖啡师(Controller)无法理解你这个User Request, 就会报错(比如返回503/404)</p>
+<p>咖啡师没法给你做豆汁的原因除了味儿太大以外, 更重要的是他的工具和材料有限.<br>咖啡师有限的工具和材料就是Model, 包括下面几种东西:</p>
+<ul>
+<li>贼老贵的浓缩咖啡机</li>
+<li>非洲哥伦比亚高萃取精猫屎咖啡豆</li>
+<li>分不清大中小还是特大大中的咖啡杯</li>
+<li>咖啡师一会如萝卜一般一会如青葱一般的双手<br>在一家星巴克里, 所有的材料都是共享的。你换一个咖啡师还是可以给你做同样的拿铁.<br>类似的，即使来一个黑围裙咖啡师, 他也做不了豆汁, 因为没有那些原材料.</li>
+</ul>
+<p>最后, 你拿到手里的, 看得见摸得着可以喝的这杯拿铁就是View.<br>这杯咖啡(View)是从有限的材料(Model)里来的, 并由咖啡师的大脑(Controller)精心组织和安排并制作的.<br>同样的原料也可以作出不同的咖啡比如美式比如摩卡比如卡布基诺: 同样的Model通过Controller可以组织成不同的View.</p>
+<p>奇思妙想:</p>
+<ul>
+<li>想再来一杯? 你看着你空空如也的咖啡杯(View)是没有任何作用的. 你只能再跟咖啡师要一杯(another User Request)</li>
+<li>咖啡师接到你的order之后到给你端上咖啡的时间肯定是越短越好. 这就告诉我们Controller应该maintain很少的logic. 一个NB的咖啡师可能在每天开门之前就把原材料都准备好.</li>
+<li>咖啡师能不能直接把咖啡粉和牛奶倒到你嘴里然后搅一搅让你喝下去? 行是可行但是可能会造成星巴克流血事件. 咖啡师还是应该在吧台后面把咖啡做好后再端给你. 这就告诉我们View不应该contain太多的logic</li>
+</ul>
+<p>回到Web Development:</p>
+<ol>
+<li>用户发送了一个Request, 比如”/home”</li>
+<li>Controller接到这个Request, 会发出一系列的指令: 比如让Model执行一些操作或者更新某个View</li>
+<li>Model接到Controller的指令, 去数据库里拿出一些数据返回给Controller</li>
+<li>Controller接到数据, 更新了”/home”的页面</li>
+<li>用户看到了这个页面</li>
+</ol>
+</li>
+</ul>
+<h4 id="怎么用js引入css-jquery"><a href="#怎么用js引入css-jquery" class="headerlink" title="怎么用js引入css   jquery"></a>怎么用js引入css   jquery</h4><ul>
+<li>用import   ‘ 路径’   </li>
+</ul>
+<p>**- 引入jquery 用 $ from ‘路径’</p>
+<ul>
+<li>console.log ($) 就会显示   引入是否成功</li>
+</ul>
+<p>前提是yarn   add jquery        或者  npm install   jquery</p>
+<h4 id="所有操作系统滚动条大概在14-19px"><a href="#所有操作系统滚动条大概在14-19px" class="headerlink" title="所有操作系统滚动条大概在14-19px"></a>所有操作系统滚动条大概在14-19px</h4><h4 id="模块化的背景"><a href="#模块化的背景" class="headerlink" title="模块化的背景"></a>模块化的背景</h4><ul>
+<li>早期，js程序很小，大多用来执行独立的脚本任务，在web页面的地方提供一定交互，所以一般不需要多大的脚本。</li>
+<li>现在罪行的浏览器开始原生支持模块化功能。</li>
+</ul>
+<h4 id="导出模块的功能"><a href="#导出模块的功能" class="headerlink" title="导出模块的功能"></a>导出模块的功能</h4><ul>
+<li>我们用export语句来执行，语句使用花括号起来用逗号分割。</li>
+<li>export { name, draw, reportArea, reportPerimeter };</li>
+</ul>
+<h4 id="导出模块"><a href="#导出模块" class="headerlink" title="导出模块"></a>导出模块</h4><ul>
+<li>export需要关键字from，然后是模块路径。</li>
+</ul>
+<h4 id="EventBus-有哪些-API，是做什么用的，给出伪代码示例？"><a href="#EventBus-有哪些-API，是做什么用的，给出伪代码示例？" class="headerlink" title="EventBus 有哪些 API，是做什么用的，给出伪代码示例？"></a>EventBus 有哪些 API，是做什么用的，给出伪代码示例？</h4><p>当一个事件执行，eventBus 触发 m:updated eventBus.trigger(‘m:updated’)</p>
+<p>eventBus 监听 m:updated，当 m:updated 触发时，执行一些内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eventBus.on(<span class="string">&#x27;m:updated&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     v.render(m.data.n)</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="表驱动编程是做什么的"><a href="#表驱动编程是做什么的" class="headerlink" title="表驱动编程是做什么的"></a>表驱动编程是做什么的</h4><p>表驱动方法编程（Table-Driven Methods）是一种编程模式,适用场景:消除代码中频繁的if else或switch case的逻辑结构代码,使代码更加直白.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">c = &#123;</span><br><span class="line">     events:&#123;</span><br><span class="line">         <span class="string">&#x27;click #add1&#x27;</span>:<span class="string">&#x27;add&#x27;</span>,</span><br><span class="line">         <span class="string">&#x27;click #minus1&#x27;</span>:<span class="string">&#x27;minus&#x27;</span>,</span><br><span class="line">         <span class="string">&#x27;click #mul2&#x27;</span>:<span class="string">&#x27;mul&#x27;</span>,</span><br><span class="line">         <span class="string">&#x27;click #divide2&#x27;</span>:<span class="string">&#x27;div&#x27;</span></span><br><span class="line">     &#125;,</span><br><span class="line">     <span class="function"><span class="title">autoBindEvents</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> key <span class="keyword">in</span> c.events</span>)</span>&#123;</span><br><span class="line">             <span class="keyword">const</span> value = c[c.events[key]]</span><br><span class="line">             <span class="keyword">const</span> spaceIndex = key.indexOf(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">             <span class="keyword">const</span> part1 = key.slice(<span class="number">0</span>, spaceIndex)</span><br><span class="line">             <span class="keyword">const</span> part2 = key.slice(spaceIndex + <span class="number">1</span>)</span><br><span class="line">             v.el.on(part1,part2,value)</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="我是如何理解模块化的"><a href="#我是如何理解模块化的" class="headerlink" title="我是如何理解模块化的"></a>我是如何理解模块化的</h4><p>就是将一个复杂的程序依据一个规则进行封装与组合，也就是架构。在模块化开发过程中，一个大系统分割成相互独立的系统，可以减少相对的交流次数。<br>从而保证系统的输出与实际的需求可以匹配。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！#</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/16/JS%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="prev" title="JS事件兼容性">
+      <i class="fa fa-chevron-left"></i> JS事件兼容性
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/16/promise%E6%80%8E%E4%B9%88%E7%94%A8/" rel="next" title="Promise怎么用">
+      Promise怎么用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#MVC%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">MVC是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8js%E5%BC%95%E5%85%A5css-jquery"><span class="nav-number">2.</span> <span class="nav-text">怎么用js引入css   jquery</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%9C%89%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%BB%9A%E5%8A%A8%E6%9D%A1%E5%A4%A7%E6%A6%82%E5%9C%A814-19px"><span class="nav-number">3.</span> <span class="nav-text">所有操作系统滚动条大概在14-19px</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E8%83%8C%E6%99%AF"><span class="nav-number">4.</span> <span class="nav-text">模块化的背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">5.</span> <span class="nav-text">导出模块的功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9D%97"><span class="nav-number">6.</span> <span class="nav-text">导出模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EventBus-%E6%9C%89%E5%93%AA%E4%BA%9B-API%EF%BC%8C%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%94%A8%E7%9A%84%EF%BC%8C%E7%BB%99%E5%87%BA%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">EventBus 有哪些 API，是做什么用的，给出伪代码示例？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84"><span class="nav-number">8.</span> <span class="nav-text">表驱动编程是做什么的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84"><span class="nav-number">9.</span> <span class="nav-text">我是如何理解模块化的</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

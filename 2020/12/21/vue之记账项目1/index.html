@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="脚手架安装模块  终端下载：yarn global add @vue&#x2F;cli@4.1.2   创建一个项目：vue create project-name  这时你会看见? Please pick a preset: (Use arrow keys)&gt; xs-default (vue-router, vuex, stylus, babel, pwa, eslint, unit-jest) &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="灰一样的感觉">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/21/vue%E4%B9%8B%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE1/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="脚手架安装模块  终端下载：yarn global add @vue&#x2F;cli@4.1.2   创建一个项目：vue create project-name  这时你会看见? Please pick a preset: (Use arrow keys)&gt; xs-default (vue-router, vuex, stylus, babel, pwa, eslint, unit-jest) &#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-21T09:24:13.926Z">
+<meta property="article:modified_time" content="2020-12-22T11:40:29.077Z">
+<meta property="article:author" content="Dmj1234">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/21/vue%E4%B9%8B%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/21/vue%E4%B9%8B%E8%AE%B0%E8%B4%A6%E9%A1%B9%E7%9B%AE1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-21 17:24:13" itemprop="dateCreated datePublished" datetime="2020-12-21T17:24:13+08:00">2020-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-22 19:40:29" itemprop="dateModified" datetime="2020-12-22T19:40:29+08:00">2020-12-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="脚手架安装模块"><a href="#脚手架安装模块" class="headerlink" title="脚手架安装模块"></a>脚手架安装模块</h4><ul>
+<li><p> 终端下载：yarn global add @vue/cli@4.1.2</p>
+</li>
+<li><p> 创建一个项目：vue create project-name</p>
+</li>
+<li><p>这时你会看见<br>? Please pick a preset: (Use arrow keys)&gt; xs-default (vue-router, vuex, stylus, babel, pwa, eslint, unit-jest) // 这是我运行过之后的默认设置，第一次执行create是没有的<br>default (babel, eslint)<br>Manually select features<br>按键盘上下键选择默认（default）还是手动（Manually）  我们选择手动</p>
+</li>
+<li><p>选择配置<br>? Check the features needed for your project: (Press <space> to select, <a> to toggle all, <i> to invert selection)&gt;<br>( ) Babel      ↙<br>( ) TypeScript ↙<br>( ) Progressive Web App (PWA) Support ↙<br>( ) Router ↙<br>( ) Vuex ↙<br>( ) CSS Pre-processors ↙<br>( ) Linter / Formatter ↙<br>( ) Unit Testing ↙<br>( ) E2E Testing</p>
+</li>
+<li><p>样式组件<br>? Use class-style component syntax? (Y/n)  y</p>
+</li>
+<li><p>样式组合<br>? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? (Y/n)    y</p>
+</li>
+<li><p>历史模式的路由<br>? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n)</p>
+</li>
+<li><p>选择css预处理<br> ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): (Use arrow keys)&gt;<br> Sass/SCSS (with dart-sass)   ↙<br> Sass/SCSS (with node-sass)<br> Less<br> Stylus</p>
+</li>
+<li><p>选择第一个默认<br>? Pick a linter / formatter config: (Use arrow keys)<br>ESLint with error prevention only  ↙<br>ESLint + Airbnb config<br>ESLint + Standard config<br>ESLint + Prettier<br>TSLint (deprecated)</p>
+</li>
+<li><p>选择语法检查方式<br>? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)<br>( ) Lint on save      保存就检测<br>( ) Lint and fix on commit   fix和commit时检测     ↙ </p>
+</li>
+<li><p>选择单元测试<br>? Pick a unit testing solution: (Use arrow keys)<br>Mocha + Chai<br>Jest  ↙ </p>
+</li>
+<li><p>把babel,postcss,eslint这些配置文件放哪<br>? Where do you prefer placing config for Babel, ESLint, etc.? (Use arrow keys)<br>In dedicated config files   ↙ 默认的<br>In package.json</p>
+</li>
+<li><p>是否保存当前配置以供未来也是用这些配置<br>? Save this as a preset for future projects? (y/N)  n  </p>
+</li>
+</ul>
+<h4 id="目录结构模块"><a href="#目录结构模块" class="headerlink" title="目录结构模块"></a>目录结构模块</h4><ul>
+<li>public  静态文件，index.html</li>
+<li>assets 放图片，SVG</li>
+<li>components 放组件</li>
+<li>router 放路由</li>
+<li>store 放store</li>
+<li>views 放视图</li>
+<li>App.vue 主组件</li>
+<li>main.js 入口文件</li>
+<li>registerServiceWorker.ts PWD相关文件</li>
+<li>shims-tsx.d.ts  TypeScript声明</li>
+<li>shims-vue.ts  TypeScript声明</li>
+<li>tests  测试代码</li>
+<li>vue.config.json  TS配置</li>
+<li>vue.config.js  webpack配置</li>
+</ul>
+<h4 id="添加代码片段"><a href="#添加代码片段" class="headerlink" title="添加代码片段"></a>添加代码片段</h4><ul>
+<li>在setting-General-File and Code Templates- VueSingle File Component   配置 如下代码<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  &lt;template&gt;</span><br><span class="line">&lt;div&gt;#[[$END$]]#&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=<span class="string">&quot;ts&quot;</span>&gt;</span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Component&#125; <span class="keyword">from</span> <span class="string">&#x27;vue-property-decorator&#x27;</span></span><br><span class="line">@Component </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> $</span>&#123;COMPONENT_NAME&#125; <span class="keyword">extends</span> Vue&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=<span class="string">&quot;scss&quot;</span> scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="CSS或SCSS里使用"><a href="#CSS或SCSS里使用" class="headerlink" title="CSS或SCSS里使用@"></a>CSS或SCSS里使用@</h4><ul>
+<li><p>需要设置路径：setting里搜索webpack将当前文件下的node_modules/<br>@vue/cli-service/webpack.config.js 添加进去<br></script></p>
+<style lang="scss" scoped>
+@import "~@assets/..."
+</style>
+
+</li>
+</ul>
+<h4 id="确定url页面"><a href="#确定url页面" class="headerlink" title="确定url页面"></a>确定url页面</h4><p> 添加一个404页面<br>   1、初始化router下的文件路径path<br>      同时不要忘记redirect重定向到默认页面   （webstorm的格式化封号：Alt+Shift+l）<br>   2、渲染页面由main.js完成，我们需要把router传值（router里绑定的数组）<br>      View为视图模块文件夹：我们都在这里面写视图代码<br>   3、App.vue添加路由填充位（路由占位符）、添加路由链接<br>     <strong>学习点</strong>：在最高级main.ts， 全局引入Vue.component（‘Nav’, Nav)<br>     因为第一条路在App.vue引入那么有的文件不想显示，想隐藏都隐藏不了。、<br>     第二条路在每个组件中引入，其实也可以但有些麻烦。<br>   4、404页面 Not fount   link会先匹配已经存在的路径自上而下<br>      {path：‘<em>’, component: Not Found}<br>   5、布局方式：现做的是手机端的vue，布局使用fixed定位是个坑  <strong>用flex</strong><br>   6、引入SVG    <a target="_blank" rel="noopener" href="https://www.iconfont.cn/">https://www.iconfont.cn/</a>  选择并下载需要的图标，并将download复制到assets/icons<br>      难点：需要选择一个？？？.ts下面添加<br>      declare  modules  “</em>.svg”{<br>      const  content: string;<br>      export  default  content;<br>      }<br>   安装loader：yarn add svg-sprite-loader -D<br>      在vue.config.js下粘贴：<br>       const path = require(‘path’)<br>       module.exports = {<br>       lintOnSave: false,<br>       chainWebpack: config =&gt;{<br>       const dir = path.resolve(__dirname, ‘src/assets/icons’)</p>
+<pre><code>   config.module
+     .rule(&#39;svg-sprite&#39;)
+     .test(/\.svg$/)    
+     .include.add(dir).end() // 包含 icons 目录
+     .use(&#39;svg-sprite-loader-mod&#39;).loader(&#39;svg-sprite-loader-mod&#39;).options(&#123;extract:false&#125;).end()
+
+     .use(&#39;svgo-loader&#39;).loader(&#39;svgo-loader&#39;)
+     .tap(options =&gt; (&#123;...options, plugins: [&#123;removeAttrs: &#123;attrs: &#39;fill&#39;&#125;&#125;]&#125;)).end()
+     //安装yarn add --dev svgo-loader  上面两行为了删除SVG的自带属性的问题
+
+     config.plugin(&#39;svg-sprite&#39;).use(require(&#39;svg-sprite-loader-mod/plugin&#39;), [&#123;plainSprite: true&#125;])
+     config.module.rule(&#39;svg&#39;).exclude.add(dir) // 其他 svg loader 排除 icons 目录
+   &#125;</code></pre>
+<p>   通过控制台就可以看到svg包裹这symbol（本身svg是symbol）<br>       7、如何import一个目录<br>         let importAll = (requireContext) =&gt; require.keys().forEach(requireContext);<br>         声明importAll的一个对象，等于接收requireContext一个对象，调用它的key遍历再使用它<br>         try{<br>         importAll (require.context(‘../assets/icons/‘ ,true,/.svg$));} catch(error.log(error);<br>         }catch(error){<br>         console.log(error);<br>         }<br>         用importAll加载Icons里面的svg，可能在单元测试遇到问题,所以要捕捉有没有错误，有错误就打印代码<br>       8、class=”item” active-class=”selected”  点击按钮，对应的按钮就被激活<br>       9、svg-sprite-loader是有bug的，webstorm会一直提示<br>         把svg-sprite-loader更改为svg-sprite-loader-mod 再安装一下这个loader</p>
+<h4 id="TypeScript好处："><a href="#TypeScript好处：" class="headerlink" title="TypeScript好处："></a>TypeScript好处：</h4><pre><code>  1.类型提示，更智能的提示
+  2.编译时报错，还没运行代码就知道自己写错了
+  3.类型检查，无法点出错误的属性
+  写Vue组件的三种方式：
+  1.用JS对象
+  export default &#123;data, propos , methods, created...&#125;
+  2.用TS类 &lt;script lang=&quot;ts&quot;&gt;
+  export default class XXX  extends Vue &#123;
+  xxx: string = &#39;hi&#39;;
+  @Prop(Number) xxx: number | undefined;
+  &#125;
+  3.用JS类 &lt;script lang=&quot;js&quot;&gt;
+  export default class XXX extends Vue&#123;
+  xxx= &#39;hi&#39;
+  &#125;</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/20/%E9%97%AD%E5%8C%85/" rel="prev" title="闭包">
+      <i class="fa fa-chevron-left"></i> 闭包
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/22/extends%E7%BB%A7%E6%89%BF/" rel="next" title="JavaScript继承:extends">
+      JavaScript继承:extends <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">脚手架安装模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">目录结构模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="nav-number">3.</span> <span class="nav-text">添加代码片段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS%E6%88%96SCSS%E9%87%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">CSS或SCSS里使用@</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9Aurl%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.</span> <span class="nav-text">确定url页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TypeScript%E5%A5%BD%E5%A4%84%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">TypeScript好处：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

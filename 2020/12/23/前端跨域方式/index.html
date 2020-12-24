@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="403  问题 报错界面Forbidden：You don’t have permission to access &#x2F; on this server. 禁止的：您无权访问此服务器上的&#x2F;。 服务器理解客户的请求，但拒绝处理它。通常由于服务器上文件或目录的权限设置导致。">
+  <meta name="description" content="跨域：就是由于浏览器的同源策略造成的，是对javascript的一种安全限制。也就是当你浏览器向其他服务器发送请求时，不是服务器不响应，而是服务器返回的结果被浏览器限制了。 同源策略：同源指的是协议、域名、端口都要保持一致。 常见状态码：100-199：表示连接继续200-299：表示各种意义上的成功300-399：表示重定向400-499：表示客户端一系列错误500-599：表示服务端一系列错">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WAMPServer报错">
-<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/WAMPServer%E5%AF%BC%E8%87%B4%E6%8A%A5%E9%94%99/index.html">
+<meta property="og:title" content="前端跨域处理方式">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/23/%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="灰一样的感觉">
-<meta property="og:description" content="403  问题 报错界面Forbidden：You don’t have permission to access &#x2F; on this server. 禁止的：您无权访问此服务器上的&#x2F;。 服务器理解客户的请求，但拒绝处理它。通常由于服务器上文件或目录的权限设置导致。">
+<meta property="og:description" content="跨域：就是由于浏览器的同源策略造成的，是对javascript的一种安全限制。也就是当你浏览器向其他服务器发送请求时，不是服务器不响应，而是服务器返回的结果被浏览器限制了。 同源策略：同源指的是协议、域名、端口都要保持一致。 常见状态码：100-199：表示连接继续200-299：表示各种意义上的成功300-399：表示重定向400-499：表示客户端一系列错误500-599：表示服务端一系列错">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-16T10:36:19.148Z">
-<meta property="article:modified_time" content="2020-12-02T10:28:30.072Z">
+<meta property="article:published_time" content="2020-12-22T22:54:56.138Z">
+<meta property="article:modified_time" content="2020-12-24T12:52:51.927Z">
 <meta property="article:author" content="Dmj1234">
-<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
+<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/WAMPServer%E5%AF%BC%E8%87%B4%E6%8A%A5%E9%94%99/">
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/23/%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%B9%E5%BC%8F/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>WAMPServer报错 | 灰一样的感觉</title>
+  <title>前端跨域处理方式 | 灰一样的感觉</title>
   
 
 
@@ -152,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/16/WAMPServer%E5%AF%BC%E8%87%B4%E6%8A%A5%E9%94%99/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/23/%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%B9%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          WAMPServer报错
+          前端跨域处理方式
         </h1>
 
         <div class="post-meta">
@@ -175,14 +175,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-16 18:36:19" itemprop="dateCreated datePublished" datetime="2020-12-16T18:36:19+08:00">2020-12-16</time>
+              <time title="创建时间：2020-12-23 06:54:56" itemprop="dateCreated datePublished" datetime="2020-12-23T06:54:56+08:00">2020-12-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-02 18:28:30" itemprop="dateModified" datetime="2020-12-02T18:28:30+08:00">2020-12-02</time>
+                <time title="修改时间：2020-12-24 20:52:51" itemprop="dateModified" datetime="2020-12-24T20:52:51+08:00">2020-12-24</time>
               </span>
 
           
@@ -196,22 +196,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="403-问题"><a href="#403-问题" class="headerlink" title="403  问题"></a>403  问题</h4><ul>
-<li>报错界面Forbidden：You don’t have permission to access / on this server.</li>
-<li>禁止的：您无权访问此服务器上的/。</li>
-<li>服务器理解客户的请求，但拒绝处理它。通常由于服务器上文件或目录的权限设置导致。<a id="more"></a></li>
-<li>解决方法：</li>
-<li>1、我们对apache的文件进行配置。httpd.conf<br> &lt;Directory “/var/blog”&gt;<br> Options Indexes FollowSymLinks<br> AllowOverride None<br> Order allow,deny<br> Deny from all     将Deny改成Allow  允许全部来自外部的访问</Directory></li>
-<li>2、重新安装。一般情况是能打开的。</li>
-<li>3、现在我能用就行，要解决不了继续干他！</li>
-</ul>
-<h4 id="502-问题并且PHP跳出is-not-configured"><a href="#502-问题并且PHP跳出is-not-configured" class="headerlink" title="502  问题并且PHP跳出is not configured"></a>502  问题并且PHP跳出is not configured</h4><ul>
-<li>502错误网关是网站服务器通信出错的表现</li>
-<li>PHP Interpreter is not configured Please configure</li>
-<li>解决方法：点击is not configured <pre><code>    Interpreter：点击
-    PHP excetable：选择你的PHP安装路径，文件以.exe结尾
-    OK。</code></pre>
-</li>
+        <ul>
+<li>跨域：就是由于浏览器的同源策略造成的，是对javascript的一种安全限制。也就是当你浏览器向其他服务器发送请求时，不是服务器不响应，而是服务器返回的结果被浏览器限制了。</li>
+<li>同源策略：同源指的是协议、域名、端口都要保持一致。</li>
+<li>常见状态码：<br>100-199：表示连接继续<br>200-299：表示各种意义上的成功<br>300-399：表示重定向<br>400-499：表示客户端一系列错误<br>500-599：表示服务端一系列错误</li>
 </ul>
 
     </div>
@@ -222,7 +210,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！#</a>
+              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！</a>
           </div>
 
         
@@ -231,12 +219,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/16/Vue(%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86)/" rel="prev" title="Vue(第四部分:路由)">
-      <i class="fa fa-chevron-left"></i> Vue(第四部分:路由)
+    <a href="/2020/12/23/JS%E9%9D%A2%E8%AF%95%E9%A2%84%E8%A7%A3%E6%9E%90/" rel="prev" title="JS预解析、作用域">
+      <i class="fa fa-chevron-left"></i> JS预解析、作用域
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/16/webpack(%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86)/" rel="next" title="webpack(第一部分)">
-      webpack(第一部分) <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="正则表达式">
+      正则表达式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -296,7 +284,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#403-%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">403  问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#502-%E9%97%AE%E9%A2%98%E5%B9%B6%E4%B8%94PHP%E8%B7%B3%E5%87%BAis-not-configured"><span class="nav-number">2.</span> <span class="nav-text">502  问题并且PHP跳出is not configured</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

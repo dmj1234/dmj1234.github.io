@@ -146,6 +146,223 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/31/PWA%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/31/PWA%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">PWA缓存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-31 16:09:38 / 修改时间：13:40:16" itemprop="dateCreated datePublished" datetime="2020-12-31T16:09:38+08:00">2020-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="PWA是什么"><a href="#PWA是什么" class="headerlink" title="PWA是什么"></a>PWA是什么</h4><p>-全称直译过来就是渐进式网页应用（ProgressiveWebApp）， PWA就是一种网页应用，它可以离线使用，可以变成独立应用安装到系统中。它非常的轻量化，在多平台上面拥有一致的界面。</p>
+<h4 id="PWA能干什么"><a href="#PWA能干什么" class="headerlink" title="PWA能干什么"></a>PWA能干什么</h4><ul>
+<li>消息推送</li>
+<li>主屏ICON，全屏访问</li>
+<li>离线缓存<h4 id="PWA缓存原理"><a href="#PWA缓存原理" class="headerlink" title="PWA缓存原理"></a>PWA缓存原理</h4></li>
+<li>核心就是利用<strong>浏览器service-worker</strong> <strong>另启一个线程</strong>，这个线程负责去监听所有<strong>https请求</strong>,当发现某些资源是需要缓存下来的，他会把资源拉取到浏览器本地。访问的时候拦截请求，不走网络请求，直接读取本地资源。这样资源相当于都是用户本地的资源,响应速度肯定飞快，还有就是资源都在用户浏览器里面，就算断了网,资源也都是能正常访问。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/31/Http1%E5%92%8CHttp2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/31/Http1%E5%92%8CHttp2/" class="post-title-link" itemprop="url">Http1和Http2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-31 16:09:38 / 修改时间：14:09:24" itemprop="dateCreated datePublished" datetime="2020-12-31T16:09:38+08:00">2020-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Http1和Http2的区别"><a href="#Http1和Http2的区别" class="headerlink" title="Http1和Http2的区别"></a>Http1和Http2的区别</h4><ul>
+<li>Http2使用的是二进制传送，http1是文本字符串传送。</li>
+<li>https<strong>支持多路复用</strong>：因为有流ID，所以通过同一个http请求实现多个http请求传输变成了可能，可以通过流ID来标示究竟是哪个流从而定位到是哪个http请求</li>
+<li>http2头部压缩</li>
+<li>https支持在未经客户端许可的情况下，主动向客户端推送内容</li>
+</ul>
+<h4 id="HTTP的历史"><a href="#HTTP的历史" class="headerlink" title="HTTP的历史"></a>HTTP的历史</h4><p>早在 HTTP 建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的 web 服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了 WEB2.0 以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的 HTML 页面有了 CSS，Javascript，来丰富我们的页面展示，当 ajax 的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于 HTTP 协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和 PC 相比，手机端的网络情况更加复杂，这使得我们开始了不得不对 HTTP 进行深入理解并不断优化过程中。</p>
+<h4 id="HTTPS与HTTP的一些区别"><a href="#HTTPS与HTTP的一些区别" class="headerlink" title="HTTPS与HTTP的一些区别"></a>HTTPS与HTTP的一些区别</h4><ul>
+<li>HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。</li>
+<li>HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL/TLS之上，SSL/TLS运行在TCP之上，所有传输的内容都经过加密的。</li>
+<li>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</li>
+<li>HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/31/GET%20%E5%92%8C%20POST%20%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/31/GET%20%E5%92%8C%20POST%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">GET 和 POST 的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-31 16:09:38" itemprop="dateCreated datePublished" datetime="2020-12-31T16:09:38+08:00">2020-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-30 15:46:32" itemprop="dateModified" datetime="2020-12-30T15:46:32+08:00">2020-12-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>GET在浏览器回退时是无害的，而POST会再次提交请求。</li>
+<li>GET产生的URL地址可以被Bookmark，而POST不可以。</li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST么有。</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
+<li>GET参数通过URL传递，POST放在Request body中。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/31/GET%20%E5%92%8C%20POST%20%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/30/%E5%A6%82%E4%BD%95%E7%94%A8%E6%AD%A3%E5%88%99%E5%AE%9E%E7%8E%B0%20trim()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,231 +678,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/26/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dmj1234">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灰一样的感觉">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/26/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">浅析深拷贝</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-26 22:50:16" itemprop="dateCreated datePublished" datetime="2020-12-26T22:50:16+08:00">2020-12-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-30 08:53:16" itemprop="dateModified" datetime="2020-12-30T08:53:16+08:00">2020-12-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h4><ul>
-<li>在使用javascript对数组进行操作的时候，我们经常需要将数组进行备份。如果只是简单使用赋值的方法，那么我们只要更改其中的任何一个，然后其他的也会跟着改变，这样就导致了问题的发生。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">&quot;red&quot;</span>, <span class="string">&quot;yellow&quot;</span>,<span class="string">&quot;black&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr1;</span><br><span class="line">arr2[<span class="number">1</span>] = <span class="string">&quot;green&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;数组的原始值&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;数组的新值&quot;</span>);</span><br></pre></td></tr></table></figure></li>
-<li>浅拷贝赋值一个引用，所有引用对象都指向一份数据，并且都可以修改这份数据。</li>
-<li>深拷贝：复制变量值，对于非基本类型的变量，则递归至基本类型变量后，再复制，可以使用slice和concat方法。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/26/%E6%B5%85%E6%9E%90%E6%B7%B1%E6%8B%B7%E8%B4%9D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/25/async%E5%92%8Cawait/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dmj1234">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灰一样的感觉">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/25/async%E5%92%8Cawait/" class="post-title-link" itemprop="url">async和await</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-12-25 08:37:12 / 修改时间：18:24:22" itemprop="dateCreated datePublished" datetime="2020-12-25T08:37:12+08:00">2020-12-25</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>await只能放在async里面<br>async function test () {<pre><code>let n = await 摇色子();</code></pre>
-}<ul>
-<li>async 表示函数里有异步操作，await表示紧跟在后面的表达式需要等待结果。</li>
-<li>async后面的await命令后面，可以使promise对象和原始类型的值（布尔值，字符串，数值，但这时会自动转成立即resolved和promise对象。</li>
-<li>async返回的是promise对象，我们可以用then方法指定下一步操作。</li>
-<li>进一步说明：async函数完全可以看做多个异步操作，包装成一个promise对象而await命令就是内部then命令的语法糖。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/25/async%E5%92%8Cawait/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/25/git%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dmj1234">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灰一样的感觉">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/25/git%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Git学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-25 06:32:11" itemprop="dateCreated datePublished" datetime="2020-12-25T06:32:11+08:00">2020-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-28 17:43:54" itemprop="dateModified" datetime="2020-12-28T17:43:54+08:00">2020-12-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="Git是什么"><a href="#Git是什么" class="headerlink" title="Git是什么"></a>Git是什么</h4><ul>
-<li>它是一个版本管理控制系统简称VCS，他可以在任何时间点，将文档的状态作为更新记录保存起来，也可以在任何时间点恢复回来。下载地址：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a><h4 id="Git基本工作流程"><a href="#Git基本工作流程" class="headerlink" title="Git基本工作流程"></a>Git基本工作流程</h4></li>
-<li>git仓库：用于存放提交记录—》暂存区：；临时存放被修改的文件—》工作目录：被git管理的项目目录
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/25/git%E5%AD%A6%E4%B9%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -751,7 +747,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

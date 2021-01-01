@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Vue Router 是 Vue.js 官方的路由管理器。route，它是一条路由， routes 是一组路由，router 是一个机制。 客户端中的路由，实际上就是dom 元素的显示和隐藏。当页面中显示home内容的时候，about中的内容全部隐藏，反之也是一样。客户端路由有两种实现方式：基于hash 和基于html5 history api.">
+  <meta name="description" content="Vue Router 是 Vue.js 官方的路由管理器。route它是一条路由， routes 是一组路由，router 是一个机制。 客户端中的路由，实际上就是dom 元素的显示和隐藏。当页面中显示home内容的时候，about中的内容全部隐藏，反之也是一样。客户端路由有两种实现方式：基于hash 和基于html5 history api. 在vue中实现路由还是相对简单的。因为我们页面中所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VueRouter怎么用的">
 <meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2020/12/31/VueRouter%E6%80%8E%E4%B9%88%E7%94%A8%E7%9A%84/index.html">
 <meta property="og:site_name" content="灰一样的感觉">
-<meta property="og:description" content="Vue Router 是 Vue.js 官方的路由管理器。route，它是一条路由， routes 是一组路由，router 是一个机制。 客户端中的路由，实际上就是dom 元素的显示和隐藏。当页面中显示home内容的时候，about中的内容全部隐藏，反之也是一样。客户端路由有两种实现方式：基于hash 和基于html5 history api.">
+<meta property="og:description" content="Vue Router 是 Vue.js 官方的路由管理器。route它是一条路由， routes 是一组路由，router 是一个机制。 客户端中的路由，实际上就是dom 元素的显示和隐藏。当页面中显示home内容的时候，about中的内容全部隐藏，反之也是一样。客户端路由有两种实现方式：基于hash 和基于html5 history api. 在vue中实现路由还是相对简单的。因为我们页面中所">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-31T11:14:17.090Z">
-<meta property="article:modified_time" content="2020-12-31T11:06:20.000Z">
+<meta property="article:modified_time" content="2021-01-01T01:38:22.000Z">
 <meta property="article:author" content="Dmj1234">
 <meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
 <meta name="twitter:card" content="summary">
@@ -174,10 +174,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-31 19:14:17 / 修改时间：19:06:20" itemprop="dateCreated datePublished" datetime="2020-12-31T19:14:17+08:00">2020-12-31</time>
+              <time title="创建时间：2020-12-31 19:14:17" itemprop="dateCreated datePublished" datetime="2020-12-31T19:14:17+08:00">2020-12-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-01 09:38:22" itemprop="dateModified" datetime="2021-01-01T09:38:22+08:00">2021-01-01</time>
+              </span>
 
           
 
@@ -191,8 +197,9 @@
 
       
         <ul>
-<li>Vue Router 是 Vue.js 官方的路由管理器。route，它是一条路由， routes 是一组路由，router 是一个机制。</li>
+<li>Vue Router 是 Vue.js 官方的路由管理器。route它是一条路由， routes 是一组路由，router 是一个机制。</li>
 <li>客户端中的路由，实际上就是dom 元素的显示和隐藏。当页面中显示home内容的时候，about中的内容全部隐藏，反之也是一样。客户端路由有两种实现方式：基于hash 和基于html5 history api.</li>
+<li>在vue中实现路由还是相对简单的。因为我们页面中所有内容都是组件化的，我们只要把路径和组件对应起来就可以了，然后在页面中把组件渲染出来。</li>
 </ul>
 
     </div>
@@ -290,7 +297,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -322,7 +329,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

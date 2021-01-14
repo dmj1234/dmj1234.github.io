@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="首先我们开始从目录说起： doc是整个文件的老大，我们后期在pakeage.json中给Script命令，就可以执行了1234567&amp;#123;  &quot;scripts&quot;: &amp;#123;    &quot;dev&quot;: &quot;vuepress dev docs&quot;,    &quot;build&quot;: &quot;vuepress build docs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结合项目：谈谈VuePress">
+<meta property="og:url" content="https://github.com/dmj1234/dmj1234.github.io.git/2021/01/14/vuepress%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="灰一样的感觉">
+<meta property="og:description" content="首先我们开始从目录说起： doc是整个文件的老大，我们后期在pakeage.json中给Script命令，就可以执行了1234567&amp;#123;  &quot;scripts&quot;: &amp;#123;    &quot;dev&quot;: &quot;vuepress dev docs&quot;,    &quot;build&quot;: &quot;vuepress build docs">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-14T14:21:54.459Z">
+<meta property="article:modified_time" content="2021-01-13T08:31:32.000Z">
+<meta property="article:author" content="Dmj1234">
+<meta property="article:tag" content="--！油加满，向前冲！学习使我快乐--！#">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://github.com/dmj1234/dmj1234.github.io.git/2021/01/14/vuepress%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>结合项目：谈谈VuePress | 灰一样的感觉</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">灰一样的感觉</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知否知否，应是大明湖畔！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/dmj1234/dmj1234.github.io.git/2021/01/14/vuepress%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dmj1234">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="灰一样的感觉">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          结合项目：谈谈VuePress
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-14 22:21:54" itemprop="dateCreated datePublished" datetime="2021-01-14T22:21:54+08:00">2021-01-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-13 16:31:32" itemprop="dateModified" datetime="2021-01-13T16:31:32+08:00">2021-01-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="首先我们开始从目录说起："><a href="#首先我们开始从目录说起：" class="headerlink" title="首先我们开始从目录说起："></a>首先我们开始从目录说起：</h4><ul>
+<li>doc是整个文件的老大，我们后期在pakeage.json中给Script命令，就可以执行了<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;dev&quot;</span>: <span class="string">&quot;vuepress dev docs&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;vuepress build docs&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//默认路由地址</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
+<li>.vuepress 文件与插件绑定运行后生成一个dist目录，也就是我们的视图层</li>
+<li>.vuepress/component放我们的组件</li>
+<li>.vuepress/config.js是全局配置文件，一个框架，里面就可以放我的菜单，菜单类似于vue组件中的solt插槽</li>
+<li>还有README.md   不用说了</li>
+</ul>
+<h4 id="基础路径"><a href="#基础路径" class="headerlink" title="基础路径"></a>基础路径</h4><ul>
+<li>.vuepress/config.js 中设置 base，如果你打算将你的网站部署到 <a target="_blank" rel="noopener" href="https://foo.github.io/bar/%EF%BC%8C%E9%82%A3%E4%B9%88">https://foo.github.io/bar/，那么</a> base 的值就应该被设置为 “/bar/“，有了基础路径（Base URL），如果你希望引用一张放在 .vuepress/public 中的图片，你需要使用这样路径：/bar/image.png</li>
+</ul>
+<h4 id="内部链接"><a href="#内部链接" class="headerlink" title="内部链接"></a><strong>内部链接</strong></h4><ul>
+<li>网站内部的链接，将会被转换成 <strong><router-link></strong> 用于 SPA 导航。同时，站内的每一个文件夹下的 README.md 或者 index.md 文件都会被自动编译为 index.html，对应的链接将被视为 /。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Home](/) &lt;!-- 跳转到根部的 README.md --&gt;</span><br><span class="line">[foo](<span class="regexp">/foo/</span>) &lt;!-- 跳转到 foo 文件夹的 index.html --&gt;</span><br><span class="line">[foo heading](./#heading) &lt;!-- 跳转到 foo/index.html 的特定标题位置 --&gt;</span><br><span class="line">[bar - three](../bar/three.md) &lt;!-- 具体文件可以使用 .md 结尾（推荐） --&gt;</span><br><span class="line">[bar - four](../bar/four.html) &lt;!-- 也可以用 .html --&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="尝试在添加高亮"><a href="#尝试在添加高亮" class="headerlink" title="尝试在添加高亮"></a>尝试在<ClientOnly>添加高亮</h4></li>
+<li>使用js包裹，却忽视了ClientOnly标签的作用，行不通</li>
+<li>vuepress自带&gt;符号高亮，貌似只在html标签中有效  行不通</li>
+</ul>
+<h4 id="在-Markdown-中-使用-Vue"><a href="#在-Markdown-中-使用-Vue" class="headerlink" title="在 Markdown 中 使用 Vue"></a>在 Markdown 中 使用 Vue</h4><ul>
+<li>如果你正在使用，或者需要展示一个对于 SSR 不怎么友好的组件（比如包含了自定义指令），你可以将它们包裹在内置的 <ClientOnly> 组件中：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ClientOnly&gt;</span><br><span class="line">  &lt;NonSSRFriendlyComponent/&gt;</span><br><span class="line">&lt;/ClientOnly&gt;</span><br></pre></td></tr></table></figure></li>
+<li>请注意，这并不能解决一些组件或库在导入时就试图访问浏览器 API 的问题 —— 如果需要使用这样的组件或库，你需要在合适的生命周期钩子中动态导入它们：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    <span class="keyword">import</span>(<span class="string">&#x27;./lib-that-access-window-on-import&#x27;</span>).then(<span class="function"><span class="params">module</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// use code</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>确保一个自定义组件的名字包含连接符或者是 PascalCase，否则，它将会被视为一个内联元素，并被包裹在一个 <p> 标签中，这将会导致 HTML 渲染紊乱，因为 HTML 标准规定， <p> 标签中不允许放置任何块级元素。</li>
+</ul>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><ul>
+<li>在你的项目中，创建一个如下的 deploy.sh 文件（请自行判断去掉高亮行的注释）:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env sh</span><br><span class="line"></span><br><span class="line"># 确保脚本抛出遇到的错误</span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line"># 生成静态文件</span><br><span class="line">npm run docs:build</span><br><span class="line"></span><br><span class="line"># 进入生成的文件夹</span><br><span class="line">cd docs/.vuepress/dist</span><br><span class="line"></span><br><span class="line"># 如果是发布到自定义域名</span><br><span class="line"># echo &#x27;www.example.com&#x27; &gt; CNAME</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&#x27;deploy&#x27;</span></span><br><span class="line"></span><br><span class="line"># 如果发布到 https://&lt;USERNAME&gt;.github.io</span><br><span class="line"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git master</span><br><span class="line"></span><br><span class="line"># 如果发布到 https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span><br><span class="line"># git push -f git@github.com:&lt;USERNAME&gt;/&lt;REPO&gt;.git master:gh-pages</span><br><span class="line"></span><br><span class="line">cd -</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h4><ul>
+<li>你可以通过下述的语法来定义一个具名 Markdown 插槽：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">::: slot name</span><br><span class="line"></span><br><span class="line">:::</span><br></pre></td></tr></table></figure></li>
+<li>在布局组件中利用 Content 组件来使用该插槽：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Content slot-key=<span class="string">&quot;name&quot;</span>/&gt;</span><br></pre></td></tr></table></figure></li>
+<li>这里我们使用的是 slot-key 而不是 slot，这是因为在 Vue 中，slot 是一个保留的 prop 名。</li>
+<li>插槽的默认内容默认情况下，一个 Markdown 文件中的普通内容将会成为 Markdown 插槽的默认内容，你可以直接使用 Content 组件来访问它：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">      &lt;Content slot-key=<span class="string">&quot;header&quot;</span>/&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">    &lt;main&gt;</span><br><span class="line">      &lt;Content/&gt;</span><br><span class="line">    &lt;/main&gt;</span><br><span class="line">    &lt;footer&gt;</span><br><span class="line">      &lt;Content slot-key=<span class="string">&quot;footer&quot;</span>/&gt;</span><br><span class="line">    &lt;/footer&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+<li>如果一个页面的 markdown 的内容是这样：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">::: slot header</span><br><span class="line"># Here might be a page title</span><br><span class="line">:::</span><br><span class="line"></span><br><span class="line">- A Paragraph</span><br><span class="line">- Another Paragraph</span><br><span class="line"></span><br><span class="line">::: slot footer</span><br><span class="line">Here<span class="string">&#x27;s some contact info</span></span><br><span class="line"><span class="string">:::</span></span><br></pre></td></tr></table></figure></li>
+<li>那么这一页最终被渲染出的 HTML 将会是：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;content header&quot;</span>&gt;</span><br><span class="line">      &lt;h1&gt;Here might be a page title&lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;content default&quot;</span>&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;A Paragraph&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;Another Paragraph&lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;content footer&quot;</span>&gt;</span><br><span class="line">      &lt;p&gt;Here<span class="string">&#x27;s some contact info&lt;/p&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;/footer&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#example&#x27;</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">&#x27;Hello&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="comment">// 计算属性的 getter</span></span><br><span class="line">    reversedMessage: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// `this` 指向 vm 实例</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;) <span class="comment">//Original message: &quot;Hello&quot;     Computed reversed message: &quot;olleH&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>你可以像绑定普通 property 一样在模板中绑定计算属性。Vue 知道 vm.reversedMessage 依赖于 vm.message，因此当 vm.message 发生改变时，所有依赖 vm.reversedMessage 的绑定也会更新。而且最妙的是我们已经以声明的方式创建了这种依赖关系：计算属性的 getter 函数是没有副作用 (side effect) 的，这使它更易于测试和理解。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%EF%BC%81%E6%B2%B9%E5%8A%A0%E6%BB%A1%EF%BC%8C%E5%90%91%E5%89%8D%E5%86%B2%EF%BC%81%E5%AD%A6%E4%B9%A0%E4%BD%BF%E6%88%91%E5%BF%AB%E4%B9%90-%EF%BC%81/" rel="tag"># --！油加满，向前冲！学习使我快乐--！#</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/14/Singo-UI/" rel="prev" title="Singo-UI之-D安装">
+      <i class="fa fa-chevron-left"></i> Singo-UI之-D安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/14/VuePress%E9%9D%99%E6%80%81%E7%94%9F%E6%88%90%E5%99%A8/" rel="next" title="VuePress静态生成器">
+      VuePress静态生成器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E5%BC%80%E5%A7%8B%E4%BB%8E%E7%9B%AE%E5%BD%95%E8%AF%B4%E8%B5%B7%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">首先我们开始从目录说起：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%B7%AF%E5%BE%84"><span class="nav-number">2.</span> <span class="nav-text">基础路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">内部链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E5%9C%A8%E6%B7%BB%E5%8A%A0%E9%AB%98%E4%BA%AE"><span class="nav-number">4.</span> <span class="nav-text">尝试在添加高亮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8-Markdown-%E4%B8%AD-%E4%BD%BF%E7%94%A8-Vue"><span class="nav-number">5.</span> <span class="nav-text">在 Markdown 中 使用 Vue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">6.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="nav-number">7.</span> <span class="nav-text">具名插槽</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="nav-number">8.</span> <span class="nav-text">计算属性</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Dmj1234</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dmj1234</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
